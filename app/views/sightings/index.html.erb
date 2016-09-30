@@ -1,0 +1,13 @@
+<div class="header">
+  <div class="container">
+    <h1>Bird Sightings</h1>
+  </div>
+</div>
+
+<% @sightings.each { |s| %>
+    <p> <%= s.username %> </p>
+    <p> <%= s.location %></p>
+    <p> <%= s.created_at %></p>
+    <% } %>
+    <%= link_to 'Submit a Sighting', "sightings/new" %>
+    

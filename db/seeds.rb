@@ -5,6 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-s1 = Sighting.create(username: 'Jane Doe', location: 'Boggs')
-s2 = Sighting.create(username: 'John Doe',location: 'Stern')
-s3 = Sighting.create(username: 'Jim',location: 'JBJ')
+s1 = Sighting.create(username: 'Jane Doe', location: 'Boggs', behavior: 'Singing')
+s2 = Sighting.create(username: 'John Doe',location: 'Stern', behavior: 'Flying')
+s3 = Sighting.create(username: 'Jim',location: 'JBJ', behavior: 'Fighting')

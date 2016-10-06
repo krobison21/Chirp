@@ -1,13 +1,41 @@
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Report a Sighting</title>
+</head>
+
+<body>
 <%= form_for(@sighting) do |f| %>
+
 <div class = "field">
     <%=f.label :UserName %> <br>
     <%=f.text_area :username %>
 </div>
+
 <div class = "field">
     <%=f.label :Location %> <br>
     <%=f.text_area :location %>
 </div>
+
+<div class = "field">
+    <%=f.label :Behavior %> <br>
+    <%=f.text_area :behavior %>
+</div>
+
 <div class = "actions">
     <%=f.submit "Submit" %>
 </div>
+
 <% end %>
+
+<div class ="map">
+    
+</div>
+
+
+</body>
+
+
+</html>

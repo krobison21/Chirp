@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   get 'info' => 'sightings#info'
   
   #Creating an account:
-  get 'createaccount' => 'users#new'
-  post 'userwelcome' => 'users#create'
+
+  get 'users' => 'users#index'
+  get 'users/new' => 'users#new'
+  post 'users' => 'users#create'
 
   
   # The priority is based upon order of creation: first created -> highest priority.

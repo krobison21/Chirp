@@ -8,3 +8,6 @@
 s1 = Sighting.create(username: 'Jane Doe', location: 'Boggs', behavior: 'Singing')
 s2 = Sighting.create(username: 'John Doe',location: 'Stern', behavior: 'Flying')
 s3 = Sighting.create(username: 'Jim',location: 'JBJ', behavior: 'Fighting')
+
+u1 = User.create(name: 'Katy Robison', email: 'krobison@tulane.edu')
+u2 = User.create(name: 'Perri Levine', email: 'plevine1@tulane.edu')

@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'users' => 'users#index'
   get 'users/new' => 'users#new'
   post 'users' => 'users#create'
+  
+  #User Dashboard:
+  get 'users/:id' => 'users#show', as: :user
 
   
   # The priority is based upon order of creation: first created -> highest priority.

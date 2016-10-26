@@ -27,6 +27,5 @@ class SightingsController < ApplicationController
         params.require(:sighting).permit(:username, :location,:behavior)
     end
 
-    
 
 end

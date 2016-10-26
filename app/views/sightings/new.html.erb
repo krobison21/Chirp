@@ -10,17 +10,17 @@
 <%= form_for(@sighting) do |f| %>
 
 <div class = "field">
-    <%=f.label :UserName %> <br>
+    <%=f.label :UserName, "Name" %> <br>
     <%=f.text_area :username %>
 </div>
 
 <div class = "field">
-    <%=f.label :Location %> <br>
+    <%=f.label :Location, "Location" %> <br>
     <%=f.text_area :location %>
 </div>
 
 <div class = "field">
-    <%=f.label :Behavior %> <br>
+    <%=f.label :Behavior, "Behavior" %> <br>
     <%=f.text_area :behavior %>
 </div>
 

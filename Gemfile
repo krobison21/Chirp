@@ -48,8 +48,17 @@ end
 group :test do
   gem "rspec-rails"
   gem 'cucumber-rails', :require => false
-  gem 'cucumber-rails-training-wheels'
+  gem 'cucumber-rails-training-wheels' 
   gem 'database_cleaner'
   gem 'capybara'
-gem 'launchy'
+  gem 'launchy'
 end
+
+# bundle install (to install gems)
+# rails generate cucumber:install capybara
+# rails generate cucumber_rails_trainig_wheels:install
+# To Run: cucumber features/AddSighting.feature
+
+# rake db:test:prepare
+
+

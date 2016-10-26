@@ -1,4 +1,4 @@
-$(document).on("ready", function() {
+/*$(document).on("ready", function() {
   L.mapbox.accessToken = 'pk.eyJ1IjoibXBlbGljaGV0IiwiYSI6ImNpZ3doNWVvYzBzNXN2cW0zd2N5ZnBvY2YifQ.2RlTuIjDz1pLYOP4YpdKyw';
   var map = L.mapbox.map('map', 'Your map layer', { zoomControl: false })
   .setView([39.739, -104.990], 12);
@@ -38,4 +38,4 @@ function addEventPopups(map) {
                        '<h4>' + properties.address + '</h4>' + '</div>';
     marker.bindPopup(popupContent, {closeButton: false, minWidth: 300});
   });
-}
+}*/

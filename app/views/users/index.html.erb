@@ -1,0 +1,12 @@
+<div class="header">
+  <div class="container">
+    <h1>Users</h1>
+  </div>
+</div>
+
+<% @users.each { |u| %>
+    <h3> User: <%= u.name %> </h3>
+    <p> Email: <%= u.email %></p>
+    <p> <%= u.created_at %></p>
+    <% } %>
+    <%= link_to 'Submit a Sighting', "sightings/new" %>

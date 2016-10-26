@@ -5,7 +5,7 @@
 </div>
 
 <% @users.each { |u| %>
-    <h3> User: <%= u.name %> </h3>
+    <h3> User: <%= link_to u.name, user_path(u) %> </h3>
     <p> Email: <%= u.email %></p>
     <p> <%= u.created_at %></p>
     <% } %>

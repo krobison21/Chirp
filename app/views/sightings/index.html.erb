@@ -5,12 +5,13 @@
 </div>
 
 <% @sightings.each { |s| %>
-    <h3> User: <%= s.username %> </h3>
+    <% u=User.find( s.user_id) %>
+    <h3> User: <%=u.name %> </h3>
     <p> Location of Sighting: <%= s.location %></p>
     <p> Bird is: <%= s.behavior %> </p>
     <p> <%= s.created_at %></p>
     <% } %>
-    <%= link_to 'Submit a Sighting', "sightings/new" %>
-    <br>
-    <%= link_to 'Home', root_path %>
+<%= link_to 'Submit a Sighting', "sightings/new" %>
+<br>
+<%= link_to 'Home', root_path %>
     

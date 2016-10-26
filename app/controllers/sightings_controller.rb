@@ -5,6 +5,7 @@ class SightingsController < ApplicationController
     def index
         @sightings = Sighting.all
     end
+ 
     def new
         @sighting = Sighting.new
     end
@@ -23,8 +24,9 @@ class SightingsController < ApplicationController
         
     private 
     def sighting_params
-        params.require(:sighting).permit(:username, :location,:behavior)
+        params.require(:sighting).permit(:username,:location,:behavior)
     end
 
+    
 
 end

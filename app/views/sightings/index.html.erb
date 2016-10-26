@@ -4,11 +4,23 @@
   </div>
 </div>
 
-<% @sightings.each { |s| %>
-    <h3> User: <%= s.username %> </h3>
-    <p> Location of Sighting: <%= s.location %></p>
-    <p> Bird is: <%= s.behavior %> </p>
-    <p> <%= s.created_at %></p>
-    <% } %>
-    <%= link_to 'Submit a Sighting', "sightings/new" %>
-    
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Behavior</th>
+    <th>Time</th>
+  </tr>
+
+<% 
+ @sightings.each do  |s| %>
+  <tr>
+    <td><%= s.username %> </td>
+    <td><%= s.location %> </td>
+    <td><%= s.behavior %> </td>
+    <td><%= s.created_at %> </td>
+  </tr>
+  
+  
+<% end %> 
+</table>

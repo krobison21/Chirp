@@ -16,13 +16,63 @@
 
 <div class = "field">
     <%=f.label :Location %> <br>
-    <%=f.text_area :location %>
 </div>
+
+<br />
+<br />
+<br />
+
+
+
+
+<style type='text/css'>
+    #info {
+        display: block;
+        position: absolute;
+        left: 0;
+        top:80px;
+        z-index: 100;
+        border: none;
+        padding: 10px;
+        border-radius: 3px;
+        font-size: 12px;
+        text-align: left;
+        width: 40%;
+        color: #222;
+        background: #fff;
+    }
+    
+</style>
+
+
+<div id='map'></div>
+<pre id='info'></pre>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibXBlbGljaGV0IiwiYSI6ImNpZ3doNWVvYzBzNXN2cW0zd2N5ZnBvY2YifQ.2RlTuIjDz1pLYOP4YpdKyw';
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center: [-74.50, 40], // starting position
+    zoom: 9 // starting zoom
+});
+
+map.on('mousemove', function (e) {
+    document.getElementById('info').innerHTML =
+        JSON.stringify(e.point) + '<br />' +
+        JSON.stringify(e.lngLat);
+});
+</script>
+
+
+<br />
 
 <div class = "field">
     <%=f.label :Behavior %> <br>
     <%=f.text_area :behavior %>
 </div>
+
+
 
 <div class = "actions">
     <%=f.submit "Submit" %>
@@ -30,9 +80,13 @@
 
 <% end %>
 
-<div class ="map">
-    
-</div>
+<br/>
+<br/>
+
+<br/>
+
+
+
 
 
 </body>

@@ -1,10 +1,15 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Workspace</title>
-   <script src="http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js"></script>
-   <link href="http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css" rel="stylesheet" />
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        #map { position:relative; height: 400px; width: 400px; top:10px;padding: 10px 0px; }
+    </style>
+   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -14,3 +19,4 @@
 
 </body>
 </html>
+

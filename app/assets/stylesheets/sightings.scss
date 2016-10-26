@@ -1,3 +1,50 @@
 // Place all the styles related to the Sightings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1{
+    font-size:20px;
+    font-weight: bold;
+    font-family: helvetica;
+}
+
+table{
+    font-size: 12px;
+    font-family: helvetica;
+    color: black;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.datatable {
+  width: 50%;
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+.datatable td {
+  border: 2px solid black;
+  padding: 0.2em;
+}
+
+.datatable th {
+  border: 2px solid black;
+  background-color: #b4c5bb;
+  font-weight: bold;
+  text-align: center;
+  
+}
+
+.datatable caption {
+    font-family: helvetica;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.datatable tr:nth-child(odd) {
+  background-color: #dbf2e4;
+  color: #000000;
+}

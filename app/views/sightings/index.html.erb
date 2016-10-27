@@ -4,14 +4,33 @@
   </div>
 </div>
 
-<% @sightings.each { |s| %>
-    <% u=User.find( s.user_id) %>
-    <h3> User: <%=u.name %> </h3>
-    <p> Location of Sighting: <%= s.location %></p>
-    <p> Bird is: <%= s.behavior %> </p>
-    <p> <%= s.created_at %></p>
-    <% } %>
-<%= link_to 'Submit a Sighting', "sightings/new" %>
+
+  <head>
+        <%= stylesheet_link_tag "app\assets\stylesheets\sightings.scss" %>
+  </head>
+<div class="wrapper">
+<table class="datatable">
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Behavior</th>
+    <th>Time</th>
+  </tr>
+
+<% 
+ @sightings.each do  |s| %>
+     <% u=User.find( s.user_id) %>
+  <tr>
+    <td><%= u.name %> </td>
+    <td><%= s.location %> </td>
+    <td><%= s.behavior %> </td>
+    <td><%= s.created_at %> </td>
+  </tr>
+  
+  
+<% end %> 
+</table>
+<%= link_to 'Report a Sighting', "/sightings/new" %>
 <br>
 <%= link_to 'Home', root_path %>
-    
+

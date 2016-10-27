@@ -57,8 +57,6 @@ end
 # bundle install (to install gems)
 # rails generate cucumber:install capybara
 # rails generate cucumber_rails_trainig_wheels:install
-# To Run: cucumber features/AddSighting.feature
-
 # rake db:test:prepare
 
-
+# To Run: cucumber features/AddSighting.feature

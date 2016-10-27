@@ -10,5 +10,7 @@ Sighting.create(location: 'Boggs', behavior: 'Singing', user_id: u1.id)
 Sighting.create(location: 'Stern', behavior: 'Flying', user_id: u1.id)
 
 
+
 u2 = User.create(name: 'Perri Levine', email: 'plevine1@tulane.edu')
 Sighting.create(location: 'JBJ', behavior: 'Fighting', user_id: u2.id)
+Sighting.create(location: 'LBC', behavior: 'Flying', user_id: u2.id)

@@ -8,6 +8,8 @@ class SightingsController < ApplicationController
  
     def new
         @sighting = Sighting.new
+        #@sighting.user_id = params['user_id']
+        
     end
     
     def create
@@ -24,7 +26,7 @@ class SightingsController < ApplicationController
         
     private 
     def sighting_params
-        params.require(:sighting).permit(:location,:behavior)
+        params.require(:sighting).permit(:location,:behavior,:user_id)
     end
 
     

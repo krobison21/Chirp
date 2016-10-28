@@ -71,7 +71,7 @@ map.on('mousemove', function (e) {
     <%=f.text_area :behavior %>
 </div>
 
-
+<%= f.hidden_field :user_id, value: params[:user_id] %>
 
 <div class = "actions">
     <%=f.submit "Submit" %>

@@ -60,8 +60,4 @@ end
 # rails generate cucumber_rails_trainig_wheels:install
 # rake db:test:prepare
 
-<<<<<<< HEAD
-
-=======
 # To Run: cucumber features/AddSighting.feature
->>>>>>> master

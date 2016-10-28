@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'sightings#welcome'
   get 'sightings' => 'sightings#index'
-  get 'sightings/new' => 'sightings#new'
+  get 'sightings/new/' => 'sightings#new', as: :submit
   post 'sightings' => 'sightings#create'
   get 'info' => 'sightings#info'
   

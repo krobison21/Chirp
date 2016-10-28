@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20161005221551) do
   enable_extension "plpgsql"
 
   create_table "sightings", force: :cascade do |t|
-    t.string   "username"
     t.string   "location"
     t.string   "behavior"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

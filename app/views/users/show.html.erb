@@ -1,0 +1,14 @@
+<h1> Welcome, <%=@user.name%>!</h1>
+
+<h3>Previous sightings:</h3>
+
+<% @sightings.each do |s| %>
+    <p> Location: <%= s.location %></p>
+    <p> Bird was: <%= s.behavior %></p>
+    <p> <%= s.created_at %> </p>
+    <% end %>
+    
+
+<%= link_to 'Submit a New Sighting', submit_path(:user_id => params[:id]) %> 
+<br>
+<%= link_to 'Home', root_path %>

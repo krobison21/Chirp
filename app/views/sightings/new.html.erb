@@ -9,13 +9,21 @@
 <body>
 <%= form_for(@sighting) do |f| %>
 
-
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <div class = "field">
     <%=f.label :location, "Location" %> <br>
     <%=f.text_area :location %>
 
 </div>
 
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -71,7 +79,7 @@ map.on('mousemove', function (e) {
     <%=f.text_area :behavior %>
 </div>
 
-<%= f.hidden_field :user_id, value: params[:user_id] %>
+<%= f.hidden_field :user_id, value: current_user.id %>
 
 <div class = "actions">
     <%=f.submit "Submit" %>

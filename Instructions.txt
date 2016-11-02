@@ -4,3 +4,8 @@ from comand line run
 2. \c db_development
 3. SELECT * FROM sightings;
 4. \q to quit
+
+To fix heroku:
+Heroku rake db:reset
+Heroku rake db:migrate
+Heroku rake db:seed

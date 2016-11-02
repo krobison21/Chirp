@@ -5,12 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-u1 = User.create(name: 'Katy Robison', email: 'krobison@tulane.edu')
+u1 = User.create(name: 'Bob Dylan', provider: 'facebook',uid: '12345',oauth_token: 'abcd', oauth_expires_at: '2017')
 Sighting.create(location: 'Boggs', behavior: 'Singing', user_id: u1.id)
 Sighting.create(location: 'Stern', behavior: 'Flying', user_id: u1.id)
 
 
 
-u2 = User.create(name: 'Perri Levine', email: 'plevine1@tulane.edu')
+u2 = User.create(name: 'Madonna', provider: 'facebook',uid: '222',oauth_token: 'defg', oauth_expires_at: '2017')
 Sighting.create(location: 'JBJ', behavior: 'Fighting', user_id: u2.id)
 Sighting.create(location: 'LBC', behavior: 'Flying', user_id: u2.id)

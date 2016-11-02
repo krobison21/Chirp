@@ -22,7 +22,7 @@
   <% if current_user %>
     Signed in as <strong><%= current_user.name %></strong>!
     <div class='nav' id='sightings'>
-  <%= link_to 'Submit a Sighting', "sightings/new" %>
+  <%= link_to 'Submit a Sighting', "/sightings/new" %>
     </div>
     <%= link_to 'Previous Sightings', user_path(current_user) %> <br>
     <%= link_to "Sign out", signout_path, id: "sign_out" %>

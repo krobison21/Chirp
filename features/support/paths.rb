@@ -15,11 +15,6 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
-      
-    when "the Chirp home page"
-      '/'
-    when "the Submit New Sighting page"
-      '/sightings/new'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

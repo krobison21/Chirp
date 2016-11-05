@@ -15,9 +15,23 @@
 <br />
 <br />
 <br />
+<div class = "checkbox">
+<%= f.check_box(:singing) %>
+<%= label_tag(:singing, "Singing") %>
+<%= f.check_box(:aggressive) %>
+<%= label_tag(:aggressive, "Aggressive") %>
+<%= f.check_box(:flying) %>
+<%= label_tag(:flying, "Flying") %>
+<%= f.check_box(:other) %>
+<%= label_tag(:other, "Other") %>
+</div>
 <div class = "field">
+    <%=f.label :notes, "Notes" %> <br>
+    <%=f.text_area :notes %>
+        <br>
     <%=f.label :location, "Location" %> <br>
     <%=f.text_area :location %>
+
 
 </div>
 
@@ -74,10 +88,7 @@ map.on('mousemove', function (e) {
 
 <br />
 
-<div class = "field">
-    <%=f.label :behavior, "Behavior" %> <br>
-    <%=f.text_area :behavior %>
-</div>
+
 
 <%= f.hidden_field :user_id, value: current_user.id %>
 

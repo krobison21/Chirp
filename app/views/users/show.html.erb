@@ -4,7 +4,16 @@
 
 <% @sightings.each do |s| %>
     <p> Location: <%= s.location %></p>
-    <p> Bird was: <%= s.behavior %></p>
+    <p>Bird was: <br> 
+    <% if s.singing == true %> Singing <br><% end%> 
+    <% if s.aggressive == true %> Aggressive <br><% end%> 
+    <% if s.flying == true %> Flying<br>
+    <% end%> 
+ 
+    </p> 
+    <p>Notes: 
+    <br>
+    <%= s.notes %></p>
     <p> <%= s.created_at %> </p>
     <% end %>
     

@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
   
-  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/:provider/callback', to: 'sessions#create_fb'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
  
-  resources :sessions, only: [:create, :destroy]
+  #resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]
  
+ #regular log in:
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create_reg'
+  
   root to: "home#show"
   #root 'sightings#welcome'
   get 'sightings' => 'sightings#index'

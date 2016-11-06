@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+/*Styles for table*/
 h1{
     font-size:20px;
     font-weight: bold;
@@ -47,4 +49,38 @@ table{
 .datatable tr:nth-child(odd) {
   background-color: #dbf2e4;
   color: #000000;
+}
+
+
+
+/*Styles for map*/
+body { margin:0; padding:0; }
+
+#map { position:absolute; top:200px; bottom:0; width:80%; height:40%; }
+
+.coordinates {
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    position: relative;
+    bottom: 10px;
+    left: 10px;
+    padding:5px 10px;
+    margin: 0;
+    font-size: 11px;
+    line-height: 18px;
+    border-radius: 3px;
+    display: none;
+    width: 300px;
+}
+
+#geocoder-container {
+    position: absolute;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#geocoder-container > div {
+    min-width:50%;
+    margin-left:25%;
+    ;
 }

@@ -12,3 +12,7 @@ heroku rake db:seed
 
 To link heroku to type into command line:
 heroku config:set FACEBOOK_APP_ID=1772681509665630 FACEBOOK_SECRET=de99385ce55646c7eee705458f5e942e
+
+To run rspec:
+-bundle exec guard
+-every time you save the file it will run the test

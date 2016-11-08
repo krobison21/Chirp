@@ -1,9 +1,7 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoibXBlbGljaGV0IiwiYSI6ImNpZ3doNWVvYzBzNXN2cW0zd2N5ZnBvY2YifQ.2RlTuIjDz1pLYOP4YpdKyw';
 var map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/mapbox/streets-v9',
-    center: [-74.50, 40], // starting position
-    zoom: 9 // starting zoom
+    container: 'map',
+    center: [-90, 70],
+    zoom: 2
 });
 
 map.on('mousemove', function (e) {
@@ -29,8 +27,8 @@ var coordinates = document.getElementById('coordinates');
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
-    center: [0, 0],
-    zoom: 2
+    center: [-90.1203, 29.9412],
+    zoom: 15
 });
 
 var canvas = map.getCanvasContainer();

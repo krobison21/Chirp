@@ -81,18 +81,13 @@ table{
 }
 
 
-.checkbox,.field,{
+.checkbox,.field,.location,.actions{
   position: relative;
   display: block;
   width: 80%;
   max-width: 700px;
   padding: 10px;
   margin: 0 auto;
-}
-
-.actions{
-  padding: 10px 10px 10px 0px;
-  display: block;
 }
 
 .checkbox{
@@ -120,7 +115,6 @@ table{
   display:table;
   position: relative;
   width: inherit;
-  border: 1px solid black;
   margin: 20px 20px 0px 0px;
 }
 
@@ -137,12 +131,13 @@ table{
   }
 }
 
+
 .side-panel{
   display: table;
   height: auto;
   width: auto;
   float: left;
-  background-color: blue;
+  /*background-color: blue;*/
   position: absolute;
   top: 20px;
   left: 20px;

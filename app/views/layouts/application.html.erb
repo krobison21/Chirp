@@ -6,6 +6,8 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
     <style>
         #map { position:relative; height: 400px; width: 400px; top:10px;padding: 10chpx 0px; }
     </style>
@@ -14,23 +16,32 @@
     <%= csrf_meta_tags %>
 </head>
 <body>
-<div class='nav' id='home'>
-  <%= link_to 'Home', root_path %>
-</div>
-
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">Chirp</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li class="active"><a href="#" accesskey="1" title="">Homepage</a></li>
+				<li id: "sign_in"><a href="/auth/facebook" accesskey="2" title="">Sign in with Facebook</a></li>
+			</ul>
+		</div>
+	</div>
 <div>
   <% if current_user %>
     Signed in as <strong><%= current_user.name %></strong>!
     <div class='nav' id='sightings'>
   <%= link_to 'Submit a Sighting', "sightings/new" %>
     </div>
-    <%= link_to 'Previous Sightings', user_path(current_user) %> <br>
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+    <%= link_to "<button>Previous Sightings</button>".html_safe, user_path(current_user) %> <br>
+    <%= link_to "<button>Sign Out</button>".html_safe, signout_path, id: "sign_out" %>
+
   <% end %>
 </div>
 <%= yield %>
+
+
 
 </body>
 </html>

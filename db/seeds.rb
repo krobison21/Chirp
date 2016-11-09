@@ -15,6 +15,6 @@ u2 = User.create(name: 'Madonna', email: nil, provider: 'facebook',uid: '222',oa
 Sighting.create(location: 'JBJ', singing: "0", aggressive: "1", flying: "1", other: "1", notes: "",  user_id: u2.id)
 Sighting.create(location: 'LBC', singing: "1", aggressive: "0", flying: "0", other: "0", notes: "Nest with eggs", user_id: u2.id)
 
-u3 = User.create(name: 'Researcher', email: 'researcher@tulane.edu', provider: nil, uid: nil,oauth_token: nil, oauth_expires_at: nil,is_researcher: true, password: 'password', password_confirmation: 'password')
+u3 = User.create(name: 'Researcher', email: 'researcher@tulane.edu', provider: "created", uid: nil,oauth_token: nil, oauth_expires_at: nil,is_researcher: true, password: 'password', password_confirmation: 'password')
 
 

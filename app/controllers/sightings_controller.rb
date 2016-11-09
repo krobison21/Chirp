@@ -15,7 +15,7 @@ class SightingsController < ApplicationController
     def create
         @sighting = Sighting.new(sighting_params)
         if @sighting.save
-            redirect_to '/sightings'
+            redirect_to user_path(current_user)
         else
             render 'new'
         end

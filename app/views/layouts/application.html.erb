@@ -22,6 +22,12 @@
   <% if current_user %>
     Signed in as <strong><%= current_user.name %></strong>!
     <div class='nav' id='sightings'>
+      
+      <% if current_user.is_researcher? %>
+        <%=link_to 'View all Sightings', '/sightings' %>
+        <%=link_to 'View all Users', '/users' %>
+      <% end %>
+      
   <%= link_to 'Submit a Sighting', "/sightings/new" %>
     </div>
     <%= link_to 'Previous Sightings', user_path(current_user) %> <br>
@@ -30,6 +36,7 @@
     <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
     <%= link_to "Create an account", "users/new" %>
     <%= link_to "Log in", "/login" %>
+    <%= link_to "Proceed as Guest","/guest" %>
   <% end %>
 </div>
 <%= yield %>

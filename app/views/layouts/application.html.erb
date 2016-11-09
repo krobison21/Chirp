@@ -4,6 +4,7 @@
 <head>
   <title>Workspace</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<<<<<<< HEAD
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.css' rel='stylesheet' />
     <link href="default.css" rel="stylesheet" type="text/css" media="all" />
@@ -11,11 +12,18 @@
     <style>
         #map { position:relative; height: 400px; width: 400px; top:10px;padding: 10chpx 0px; }
     </style>
+=======
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.3.1/mapbox-gl-geocoder.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.3.1/mapbox-gl-geocoder.css' type='text/css' />
+>>>>>>> master
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 </head>
 <body>
+<<<<<<< HEAD
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="logo">
@@ -28,15 +36,31 @@
 			</ul>
 		</div>
 	</div>
+=======
+  
+<div class='nav' id='home'>
+  <%= link_to 'Home', root_path %>
+</div>
+
+>>>>>>> master
 <div>
   <% if current_user %>
     Signed in as <strong><%= current_user.name %></strong>!
     <div class='nav' id='sightings'>
-  <%= link_to 'Submit a Sighting', "sightings/new" %>
+  <%= link_to 'Submit a Sighting', "/sightings/new" %>
     </div>
+<<<<<<< HEAD
     <%= link_to "<button>Previous Sightings</button>".html_safe, user_path(current_user) %> <br>
     <%= link_to "<button>Sign Out</button>".html_safe, signout_path, id: "sign_out" %>
 
+=======
+    <%= link_to 'Previous Sightings', user_path(current_user) %> <br>
+    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+    <%= link_to "Create an account", "users/new" %>
+    <%= link_to "Log in", "/login" %>
+>>>>>>> master
   <% end %>
 </div>
 <%= yield %>

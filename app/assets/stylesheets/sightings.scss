@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+/*Styles for table*/
 h1{
     font-size:20px;
     font-weight: bold;
@@ -47,4 +49,134 @@ table{
 .datatable tr:nth-child(odd) {
   background-color: #dbf2e4;
   color: #000000;
+}
+
+
+/*Styles for form*/
+.form{
+  padding: 10px;
+  top: 20px;
+  height: 700px;
+  position: relative;
+}
+
+.new_sighting{
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  position:relative;
+}
+
+.fields-container{
+  display:table;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.location{
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
+
+.checkbox,.field,.location,.actions{
+  position: relative;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.checkbox{
+  display: table;
+}
+
+.checkbox-choice{
+  display:block;
+}
+
+.field-choice{
+  display: table;
+  padding-bottom: 20px;
+  label, textarea{
+    display:block;
+  }
+}
+
+
+
+/*Styles for map*/
+
+.map-container{
+  height: 500px;
+  display:table;
+  position: relative;
+  width: inherit;
+  margin: 20px 20px 0px 0px;
+}
+
+#map { 
+  position:relative;
+  bottom:0;
+  width:100%;
+  height:100%;
+  display: table-cell;
+  float:right;
+  
+  .mapboxgl-ctrl-bottom-right{
+    display: none;
+  }
+}
+
+
+.side-panel{
+  display: table;
+  height: auto;
+  width: auto;
+  float: left;
+  /*background-color: blue;*/
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+
+
+#geocoder-container {
+  transition: 3s ease;
+    .mapboxgl-ctrl-geocoder{
+      padding: 0px;
+      margin-left: 10;
+      margin: 0 auto;
+      font-size: 20px;
+      border-radius: 8px;
+    
+    }
+    .input{
+      width: 100%;
+      padding: 0px;
+    }
+}
+
+.coordinates {
+    position: relative;
+    padding: 5px 0px 5px 40px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 18px;
+    display:block;
+    height: auto;
+    transition: 3s;
+    top: 15px;
+    text-align: left;
+    font-family: Helvetica;
+}
+
+.location-div{
+  display: block;
+  position: relative;
+  transition: 3s ease;
 }

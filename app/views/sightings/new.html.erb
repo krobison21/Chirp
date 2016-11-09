@@ -1,102 +1,77 @@
 
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>Report a Sighting</title>
-</head>
-
 <body>
-<%= form_for(@sighting) do |f| %>
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<div class = "field">
-    <%=f.label :location, "Location" %> <br>
-    <%=f.text_area :location %>
-
-</div>
-
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-
-
-
-
-<style type='text/css'>
-    #info {
-        display: block;
-        position: absolute;
-        left: 0;
-        top:105px;
-        z-index: 100;
-        border: none;
-        padding: 10px;
-        border-radius: 3px;
-        font-size: 12px;
-        text-align: left;
-        width: 40%;
-        color: #222;
-        background: #fff;
-    }
+<div class="form">
+    <%= form_for(@sighting) do |f| %>
     
-</style>
+    
+    <div class="fields-container">
+        <div class = "checkbox">
+            <%=f.label :behavior, "Behavior" %> 
+            <div class="checkbox-choice">
+                <%= f.check_box(:singing) %>
+                <%= label_tag(:singing, "Singing") %>
+            </div>
+            <div class="checkbox-choice">
+                <%= f.check_box(:aggressive) %>
+                <%= label_tag(:aggressive, "Aggressive") %>
+            </div>
+            <div class="checkbox-choice">
+                <%= f.check_box(:flying) %>
+                <%= label_tag(:flying, "Flying") %>
+            </div>
+            <div class="checkbox-choice">
+                <%= f.check_box(:other) %>
+                <%= label_tag(:other, "Other") %>
+            </div>
+        </div>
+        
+        <div class = "field">
+            <div class="field-choice">
+                <%=f.label :notes, "Notes" %>
+                <%=f.text_area :notes %>
+            </div>
+        </div>
+            
+            
+        <div class="location">
+            
+            <div class="field-choice">
+                <%=f.label :location, "Location" %> 
+                <%=f.text_area :location %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+            </div>
+            Try out our interactive map! Type in your location to drop a map marker. Feel free to move the marker around
+            if you want a more specific location.
+            
+            <div class="map-container">
+                <div id='map'></div>
+                <div class="side-panel">
+                     <div id='geocoder-container'></div>
+                     <div class="location-div"><pre id='coordinates' class='coordinates'></pre></div>
+                </div>
+            </div>
+            <br />
+            
+        </div>
+    
+        <div class = "actions">
+                <%=f.submit "Submit" %>
+        </div>
+        <%= link_to 'Home', root_path %>
 
-<div id='map'></div>
-<pre id='info'></pre>
-<script>
-mapboxgl.accessToken = 'pk.eyJ1IjoibXBlbGljaGV0IiwiYSI6ImNpZ3doNWVvYzBzNXN2cW0zd2N5ZnBvY2YifQ.2RlTuIjDz1pLYOP4YpdKyw';
-var map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/mapbox/streets-v9',
-    center: [-74.50, 40], // starting position
-    zoom: 9 // starting zoom
-});
-
-map.on('mousemove', function (e) {
-    document.getElementById('info').innerHTML =
-        // e.point is the x, y coordinates of the mousemove event relative
-        // to the top-left corner of the map
-        JSON.stringify(e.point) + '<br />' +
-            // e.lngLat is the longitude, latitude geographical position of the event
-        JSON.stringify(e.lngLat);
-});
-</script>
-
-
-<br />
-
-<div class = "field">
-    <%=f.label :behavior, "Behavior" %> <br>
-    <%=f.text_area :behavior %>
+        
+    </div>
+    <% end %>
 </div>
-
-<%= f.hidden_field :user_id, value: current_user.id %>
-
-<div class = "actions">
-    <%=f.submit "Submit" %>
-</div>
-
-<% end %>
-
-<br/>
-<br/>
-
-<br/>
-
-
-
+<%= javascript_include_tag 'map.js'%>
 
 
 </body>
 
-<%= link_to 'Home', root_path %>
+
+
+
 </html>
+
+

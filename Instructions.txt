@@ -6,6 +6,8 @@ from comand line run
 4. \q to quit
 
 To fix heroku:
+git push heroku master
+
 heroku rake db:reset
 heroku rake db:migrate
 heroku rake db:seed

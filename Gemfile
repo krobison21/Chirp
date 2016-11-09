@@ -60,6 +60,8 @@ group :test do
 end
 
 gem 'puma'
+gem 'will_paginate'
+gem 'kaminari'
 # bundle install (to install gems)
 # rails generate cucumber:install capybara
 # rails generate cucumber_rails_trainig_wheels:install

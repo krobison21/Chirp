@@ -8,19 +8,19 @@
     <div class="fields-container">
         <div class = "checkbox">
             <%=f.label :behavior, "Behavior" %> 
-            <div class="checkbox-choice">
+            <div class="checkbox-choice", data-toggle="tooltip" title="The individual bird is actively singing">
                 <%= f.check_box(:singing) %>
                 <%= label_tag(:singing, "Singing") %>
             </div>
-            <div class="checkbox-choice">
+            <div class="checkbox-choice", data-toggle="tooltip" title="The individual bird is actively displaying aggressive behavior, such as....">
                 <%= f.check_box(:aggressive) %>
                 <%= label_tag(:aggressive, "Aggressive") %>
             </div>
-            <div class="checkbox-choice">
+            <div class="checkbox-choice", data-toggle="tooltip" title="The individual bird is actively flying">
                 <%= f.check_box(:flying) %>
                 <%= label_tag(:flying, "Flying") %>
             </div>
-            <div class="checkbox-choice">
+            <div class="checkbox-choice", data-toggle="tooltip" title="The individual bird is displaying other behavior or traits that are not defined above. Please describe in notes.">
                 <%= f.check_box(:other) %>
                 <%= label_tag(:other, "Other") %>
             </div>

@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20161005221551) do
 
   create_table "sightings", force: :cascade do |t|
     t.string   "location"
-    t.boolean  "singing"
-    t.boolean  "aggressive"
-    t.boolean  "flying"
-    t.boolean  "other"
+    t.string   "singing"
+    t.string   "aggressive"
+    t.string   "flying"
+    t.string   "other"
     t.string   "notes"
     t.integer  "user_id"
     t.datetime "created_at"

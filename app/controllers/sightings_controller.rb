@@ -3,7 +3,7 @@ class SightingsController < ApplicationController
     end
     
     def index
-        @sightings = Sighting.all
+        @sightings = Sighting.all.paginate(page: params[:page], per_page: 5)
     end
  
     def new

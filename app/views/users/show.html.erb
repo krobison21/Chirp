@@ -10,9 +10,9 @@
 <% @sightings.each do |s| %>
     <p> Location: <%= s.location %></p>
     <p>Bird was: <br> 
-    <% if s.singing == true %> Singing <br><% end%> 
-    <% if s.aggressive == true %> Aggressive <br><% end%> 
-    <% if s.flying == true %> Flying<br>
+    <% if s.singing == "1" %> Singing <br><% end%> 
+    <% if s.aggressive == "1" %> Aggressive <br><% end%> 
+    <% if s.flying == "1" %> Flying<br>
     <% end%> 
  
     </p> 

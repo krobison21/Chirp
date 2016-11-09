@@ -1,6 +1,11 @@
 <h1> Welcome, <%=@user.name%>!</h1>
 
-<h3>Previous sightings:</h3>
+<% if  @sightings.first.nil?%> 
+    <h3> You haven't submitted any sightings yet. Click <%= link_to 'here ', "/sightings/new" %> to get started.</h3>
+<% else %>
+    <h3>Previous sightings:</h3>
+<% end %>
+
 
 <% @sightings.each do |s| %>
     <p> Location: <%= s.location %></p>
@@ -17,7 +22,3 @@
     <p> <%= s.created_at %> </p>
     <% end %>
     
-
-<%= link_to 'Submit a New Sighting', submit_path(:user_id => params[:id]) %> 
-<br>
-<%= link_to 'Home', root_path %>

@@ -19,10 +19,13 @@ Rails.application.routes.draw do
   get 'info' => 'sightings#info'
   
   #Creating an account:
-
   get 'users' => 'users#index'
   get 'users/new' => 'users#new'
   post 'users' => 'users#create'
+  
+  #Log in as Guest:
+  get 'guest' => 'users#newguest'
+  
   
   #User Dashboard:
   get 'users/:id' => 'users#show', as: :user

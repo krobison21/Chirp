@@ -1,9 +1,17 @@
-<h1> Welcome, <%=@user.name%>!</h1>
+<% if @user == current_user %>
+    <h1> Welcome, <%=@user.name%>!</h1>
 
-<% if  @sightings.first.nil?%> 
-    <h3> You haven't submitted any sightings yet. Click <%= link_to 'here ', "/sightings/new" %> to get started.</h3>
+    <% if  @sightings.first.nil?%> 
+           <h3> You haven't submitted any sightings yet. Click <%= link_to 'here ', "/sightings/new" %> to get started.</h3>
+    <% else %>
+        <h3>Previous sightings:</h3>
+    <% end %>
 <% else %>
-    <h3>Previous sightings:</h3>
+    <% if  @sightings.first.nil?%> 
+           <h3> <%=@user.name %> hasnt submitted any sightings yet. </h3>
+    <% else %>
+        <h3> <%=@user.name%>'s Previous Sightings:</h3>
+    <% end %>
 <% end %>
 
 

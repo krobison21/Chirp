@@ -1,3 +1,4 @@
+new html era
 
 <body>
 
@@ -8,19 +9,19 @@
     <div class="fields-container">
         <div class = "checkbox">
             <%=f.label :behavior, "Behavior" %> 
-            <div class="checkbox-choice">
+            <div class="checkbox-choice", data-toggle="tooltip" title="The individual bird is actively singing">
                 <%= f.check_box(:singing) %>
                 <%= label_tag(:singing, "Singing") %>
             </div>
-            <div class="checkbox-choice">
+            <div class="checkbox-choice", data-toggle="tooltip" title="The individual bird is actively displaying aggressive behavior, such as....">
                 <%= f.check_box(:aggressive) %>
                 <%= label_tag(:aggressive, "Aggressive") %>
             </div>
-            <div class="checkbox-choice">
+            <div class="checkbox-choice", data-toggle="tooltip" title="The individual bird is actively flying">
                 <%= f.check_box(:flying) %>
                 <%= label_tag(:flying, "Flying") %>
             </div>
-            <div class="checkbox-choice">
+            <div class="checkbox-choice", data-toggle="tooltip" title="The individual bird is displaying other behavior or traits that are not defined above. Please describe in notes.">
                 <%= f.check_box(:other) %>
                 <%= label_tag(:other, "Other") %>
             </div>
@@ -40,6 +41,9 @@
                 <%=f.label :location, "Location" %> 
                 <%=f.text_area :location %>
                 <%= f.hidden_field :user_id, value: current_user.id %>
+
+                
+
             </div>
             Try out our interactive map! Type in your location to drop a map marker. Feel free to move the marker around
             if you want a more specific location.
@@ -48,8 +52,8 @@
                 <div id='map'></div>
                 <div class="side-panel">
                      <div id='geocoder-container'></div>
-                     <div class="location-div"><pre id='coordinates' class='coordinates'></pre></div>
                 </div>
+                    <div id="location-div" class="location-div"><pre id='coordinates' class='coordinates'></pre></div>
             </div>
             <br />
             
@@ -58,18 +62,16 @@
         <div class = "actions">
                 <%=f.submit "Submit" %>
         </div>
-        <%= link_to 'Home', root_path %>
+
 
         
     </div>
     <% end %>
 </div>
+
 <%= javascript_include_tag 'map.js'%>
 
-
 </body>
-
-
 
 
 </html>

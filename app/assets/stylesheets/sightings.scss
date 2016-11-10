@@ -196,8 +196,17 @@ table{
     font-family: Helvetica;
 }
 
+<<<<<<< HEAD
 
 
 .geocoder-icon.geocoder-icon-close.active{
   display:none;
 }
+=======
+.location-div{
+  display: block;
+  position: relative;
+  transition: 3s ease;
+}
+
+>>>>>>> 06fd935ae680afa4b3a431cf6a21f3de02102053

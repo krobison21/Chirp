@@ -1,3 +1,6 @@
+"use strict"
+
+
 var map = new mapboxgl.Map({
     container: 'map',
     center: [-90, 70],
@@ -23,6 +26,10 @@ var isDragging;
 var isCursorOverPoint;
 
 var coordinates = document.getElementById('coordinates');
+var locationjav =  document.getElementById('sighting_location');
+
+document.getElementById("location-div").style.display = "none ";
+
 
 var map = new mapboxgl.Map({
     container: 'map',
@@ -80,18 +87,29 @@ function onMove(e) {
     // and call setData to the source layer `point` on it.
     geojson.features[0].geometry.coordinates = [coords.lng, coords.lat];
     map.getSource('single-point').setData(geojson);
+
 }
 
 function onUp(e) {
-    if (!isDragging) return;
+    if (!isDragging){
+        
+        return;
+    }
+
     var coords = e.lngLat;
+    
 
     // Print the coordinates of where the point had
     // finished being dragged to on the map.
-    coordinates.style.display = 'block';
+
     coordinates.innerHTML = 'Longitude: ' + coords.lng + '<br />Latitude: ' + coords.lat;
+    
+    locationjav.innerHTML = coords.lng +  ', ' + coords.lat;
+    
     canvas.style.cursor = '';
     isDragging = false;
+    document.getElementById("location-div").style.display = "";
+
 }
 
 
@@ -100,7 +118,6 @@ map.addControl(geocoder);
 // After the map style has loaded on the page, add a source layer and default
 // styling for a single point.
 map.on('load', function() {
-  
     map.addSource('single-point', {
         "type": "geojson",
         "data": {
@@ -150,6 +167,7 @@ map.on('load', function() {
         map.getSource('single-point').setData(ev.result.geometry);
     });
 });
+
 
 $("input").keypress(function(event) {
 "use strict";

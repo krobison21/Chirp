@@ -1,6 +1,13 @@
+<% if !current_user or !current_user.is_researcher? %>
+  <h3>Sorry, you need special permission to view this page. 
+  Please log in <%=link_to 'here', "/login" %> with the approproate
+  credintials to view this page.</h3>
+
+
+<%else %>
 <div class="header">
   <div class="container">
-    <h1>Log in Page</h1>
+    <h1>Active Users</h1>
   </div>
 </div>
 
@@ -12,3 +19,5 @@
       <%end %>
     <p> Created: <%= u.created_at %></p>
     <% } %>
+    
+<%end%>

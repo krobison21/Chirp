@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     end
     private 
     def is_created?
-      self.provider == 'create'
+      self.provider == 'created'
     end
     #validates_presence_of :state, :granted_at, :if => lambda {self.type != 1}
 

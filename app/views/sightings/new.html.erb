@@ -1,6 +1,17 @@
 
 <body>
 
+<style>
+.marker {
+    display: block;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}
+</style>
+
+
 <div class="form">
     <%= form_for(@sighting) do |f| %>
     
@@ -41,11 +52,9 @@
                 <%=f.text_area :location %>
                 <%= f.hidden_field :user_id, value: current_user.id %>
 
-                
-
             </div>
-            Try out our interactive map! Type in your location to drop a map marker. Feel free to move the marker around
-            if you want a more specific location.
+            Try out our interactive map! Type in your location to drop a map marker.Click the marker to reveal your longitude
+            and latitude. Feel free to move the marker around if you want a more specific location.
             
             <div class="map-container">
                 <div id='map'></div>
@@ -68,9 +77,10 @@
     <% end %>
 </div>
 
-<%= javascript_include_tag 'map.js'%>
 
 </body>
+
+<%= javascript_include_tag 'map.js'%>
 
 
 </html>

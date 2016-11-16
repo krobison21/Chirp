@@ -170,11 +170,10 @@ table{
 .location-div{
   display: block;
   position: absolute;
-  height: 50px ;
   bottom: 20px;
   left: 20px;
   font: 15px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  background-color: rgba(black, 0.3);
+  background-color: rgba(black, 0.5);
   width: 33.3333%;
   min-width: 240px;
   max-width: 360px;
@@ -184,6 +183,10 @@ table{
 
 }
 
+#point{
+  background-color: black;
+  background-image: url(https://cbsradionews.files.wordpress.com/2016/02/beyonce-super-bowl-50.jpg?w=640&h=360&crop=1);
+}
 
 .coordinates {
     position: relative;
@@ -203,9 +206,4 @@ table{
 
 .geocoder-icon.geocoder-icon-close.active{
   display:none;
-}
-
-
-.location-div{
-  display: block;
 }

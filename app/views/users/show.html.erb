@@ -1,9 +1,24 @@
-<h1> Welcome, <%=@user.name%>!</h1>
+<% if !current_user or ((!(current_user.is_researcher?)) and (@user != current_user))  %>
+  <h3>Oops, you need to be logged in to view this page. 
+  Please log in <%=link_to 'here', "/login" %> or with <%= link_to "Facebook", "/auth/facebook"%> and try again.</h3>
 
-<% if  @sightings.first.nil?%> 
-    <h3> You haven't submitted any sightings yet. Click <%= link_to 'here ', "/sightings/new" %> to get started.</h3>
+
+<%else %>
+
+<% if @user == current_user %>
+    <h1> Welcome, <%=@user.name%>!</h1>
+
+    <% if  @sightings.first.nil?%> 
+           <h3> You haven't submitted any sightings yet. Click <%= link_to 'here ', "/sightings/new" %> to get started.</h3>
+    <% else %>
+        <h3>Previous sightings:</h3>
+    <% end %>
 <% else %>
-    <h3>Previous sightings:</h3>
+    <% if  @sightings.first.nil?%> 
+           <h3> <%=@user.name %> hasn't submitted any sightings yet. </h3>
+    <% else %>
+        <h3> <%=@user.name%>'s Previous Sightings:</h3>
+    <% end %>
 <% end %>
 
 
@@ -22,3 +37,4 @@
     <p> <%= s.created_at %> </p>
     <% end %>
     
+<%end%>

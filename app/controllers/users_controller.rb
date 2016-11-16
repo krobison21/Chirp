@@ -21,6 +21,7 @@ class UsersController < ApplicationController
             redirect_to root_path
         else
             render 'new'
+            #flash[:error] = @users.errors # Not quite right!
         end
     end
     

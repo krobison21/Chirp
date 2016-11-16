@@ -4,42 +4,69 @@
 <head>
   <title>Workspace</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.css' rel='stylesheet' />
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.3.1/mapbox-gl-geocoder.js'></script>
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.3.1/mapbox-gl-geocoder.css' type='text/css' />
+    <link href="default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+    <style>
+        #map { position:relative; height: 400px; width: 400px; top:10px;padding: 10chpx 0px; }
+    </style>
+
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 </head>
 <body>
-  
-<div class='nav' id='home'>
-  <%= link_to 'Home', root_path %>
-</div>
 
-<div>
-  <% if current_user %>
-    Signed in as <strong><%= current_user.name %></strong>!
-    <div class='nav' id='sightings'>
-      
-      <% if current_user.is_researcher? %>
-        <%=link_to 'View all Sightings', '/sightings' %>
-        <%=link_to 'View all Users', '/users' %>
+
+<% if current_user %>
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">Chirp</a></h1>
+			<h5><a href = "#">Signed in as <strong><%= current_user.name %></strong> </a></h3> 
+		</div>
+		<div id="menu">
+			
+			
+			  
+     
+       <ul>
+       <li id = "home"><%= link_to 'Homepage', root_path %></li></li>
+			 <li id: "submit"><a href="/sightings/new" accesskey="2" title="">Submit a Sighting</a></li>
+			 <li id = "sign_out"> <%= link_to "Sign out", signout_path%> </li>
+		<% if current_user.is_researcher? %>
+		<li><a href="/sightings">View all Sightings</a></li>
+        <li><a href="/users">View all Users</a></li>
       <% end %>
-      
-  <%= link_to 'Submit a Sighting', "/sightings/new" %>
-    </div>
-    <%= link_to 'Previous Sightings', user_path(current_user) %> <br>
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-    <%= link_to "Create an account", "/users/new" %>
-    <%= link_to "Log in", "/login" %>
-    <%= link_to "Proceed as Guest","/guest" %>
-  <% end %>
-</div>
+	     <% else %>
+	     <div id="header-wrapper">
+	        <div id="header" class="container">
+		        <div id="logo">
+			        <h1><a href="#">Chirp</a></h1>
+	        	</div>
+	        	<div id="menu">
+	     <ul>
+				<li id = "home"><%= link_to 'Homepage', root_path %></li>
+				<li id: "sign_in"><a href="/auth/facebook" accesskey="2" title="">Sign in with Facebook</a></li>
+				<li><a href="users/new">Create an Account</a></li>
+				<li><a href="/login">Log in</a></li>
+				<li><a href= "/guest">Proceed as Guest</a></li>
+			</ul>
+			 <% end %>
+			</ul>
+			 
+		</div>
+	</div>
+
+
+
 <%= yield %>
+
 
 </body>
 </html>

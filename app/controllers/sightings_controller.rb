@@ -4,6 +4,11 @@ class SightingsController < ApplicationController
     
     def index
         @sightings = Sighting.all.paginate(page: params[:page], per_page: 5)
+        @sightingz = Sighting.all
+        respond_to do |format|
+            format.html
+            format.csv { send_data @sightingz.to_csv}
+        end 
     end
  
     def new

@@ -21,3 +21,7 @@ To run rspec:
 
 If servers wont work:
 killall ruby
+
+For maps in heroku:
+RAILS_ENV=production bundle exec rake assets:precompile
+heroku run rake assets:precompile

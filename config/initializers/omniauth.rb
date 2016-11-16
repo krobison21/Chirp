@@ -1,5 +1,7 @@
 OmniAuth.config.logger = Rails.logger
  
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :facebook, '331863843848775', '5b4e11b495140d25374d99c2666f3a80', {:client_options => {:ssl => {:ca_file => Rails.root.join("cacert.pem").to_s}}}
+
+  provider :facebook, '1772681509665630', 'de99385ce55646c7eee705458f5e942e', {:client_options => {:ssl => {:ca_file => Rails.root.join("cacert.pem").to_s}}}
+
 end

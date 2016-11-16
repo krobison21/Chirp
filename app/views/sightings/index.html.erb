@@ -1,3 +1,11 @@
+
+<% if !current_user or !current_user.is_researcher? %>
+  <h3>Sorry, you need special permission to view this page. 
+  Please log in <%=link_to 'here', "/login" %> with the approproate
+  credintials to view this page.</h3>
+
+
+<%else %>
 <div class="header">
   <div class="container">
     <h1>Bird Sightings</h1>
@@ -9,6 +17,7 @@
         <%= stylesheet_link_tag "app\assets\stylesheets\sightings.scss" %>
   </head>
 <div class="wrapper">
+
 <table class="datatable">
   <tr>
     <th>Name</th>
@@ -16,6 +25,7 @@
     <th>Singing</th>
     <th>Aggressive</th>
     <th>Flying</th>
+    <th>Other</th>
     <th>Notes</th>
     <th>Time</th>
   </tr>
@@ -29,6 +39,7 @@
     <td><%= s.singing %> </td>
     <td><%= s.aggressive %> </td>
     <td><%= s.flying %> </td>
+    <td><%= s.other %> </td>
     <td><%= s.notes %> </td>
     <td><%= s.created_at %> </td>
   </tr>
@@ -37,4 +48,13 @@
 <% end %> 
 </table>
 
+<div class = "paginate">
+  <%= will_paginate @sightings %>
+</div>
+<p>
+  Download:
+  <%= link_to "CSV", sightings_path(format: "csv") %> |
+</p>
 
+
+<%end%>

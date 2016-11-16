@@ -22,6 +22,7 @@
 </head>
 <body>
 
+
 <% if current_user %>
 <div id="header-wrapper">
 	<div id="header" class="container">
@@ -38,6 +39,10 @@
        <li id = "home"><%= link_to 'Homepage', root_path %></li></li>
 			 <li id: "submit"><a href="/sightings/new" accesskey="2" title="">Submit a Sighting</a></li>
 			 <li id = "sign_out"> <%= link_to "Sign out", signout_path%> </li>
+		<% if current_user.is_researcher? %>
+		<li><a href="/sightings">View all Sightings</a></li>
+        <li><a href="/users">View all Users</a></li>
+      <% end %>
 	     <% else %>
 	     <div id="header-wrapper">
 	        <div id="header" class="container">
@@ -50,12 +55,15 @@
 				<li id: "sign_in"><a href="/auth/facebook" accesskey="2" title="">Sign in with Facebook</a></li>
 				<li><a href="users/new">Create an Account</a></li>
 				<li><a href="/login">Log in</a></li>
+				<li><a href= "/guest">Proceed as Guest</a></li>
 			</ul>
 			 <% end %>
 			</ul>
 			 
 		</div>
 	</div>
+
+
 
 <%= yield %>
 

@@ -1,3 +1,5 @@
+css
+
 // Place all the styles related to the Sightings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -114,14 +116,15 @@ table{
   height: 500px;
   display:table;
   position: relative;
-  width: inherit;
+  width: 700px;
+  max-width: 700px;
   margin: 20px 20px 0px 0px;
 }
 
 #map { 
   position:relative;
   bottom:0;
-  width:100%;
+  width:inherit;
   height:100%;
   display: table-cell;
   float:right;
@@ -131,6 +134,11 @@ table{
   }
 }
 
+#sighting_location{
+  line-height: 20px;
+  max-width: calc(30em * 0.5);
+  display:none;
+}
 
 .side-panel{
   display: table;
@@ -146,10 +154,8 @@ table{
 
 
 #geocoder-container {
-  transition: 3s ease;
     .mapboxgl-ctrl-geocoder{
       padding: 0px;
-      margin-left: 10;
       margin: 0 auto;
       font-size: 20px;
       border-radius: 8px;
@@ -161,6 +167,27 @@ table{
     }
 }
 
+.location-div{
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font: 15px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  background-color: rgba(black, 0.5);
+  width: 33.3333%;
+  min-width: 240px;
+  max-width: 360px;
+  z-index: 1;
+  border-radius: 8px;
+  transition: all 10s ease;
+
+}
+
+#point{
+  background-color: black;
+  background-image: url(https://cbsradionews.files.wordpress.com/2016/02/beyonce-super-bowl-50.jpg?w=640&h=360&crop=1);
+}
+
 .coordinates {
     position: relative;
     padding: 5px 0px 5px 40px;
@@ -168,15 +195,15 @@ table{
     font-size: 12px;
     line-height: 18px;
     display:block;
-    height: auto;
-    transition: 3s;
-    top: 15px;
+    height: inherit;
+    transition: 3s ease;
     text-align: left;
+    color: white;
     font-family: Helvetica;
 }
 
-.location-div{
-  display: block;
-  position: relative;
-  transition: 3s ease;
+
+
+.geocoder-icon.geocoder-icon-close.active{
+  display:none;
 }

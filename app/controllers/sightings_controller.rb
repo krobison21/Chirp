@@ -3,7 +3,12 @@ class SightingsController < ApplicationController
     end
     
     def index
-        @sightings = Sighting.all
+        @sightings = Sighting.all.paginate(page: params[:page], per_page: 5)
+        @sightingz = Sighting.all
+        respond_to do |format|
+            format.html
+            format.csv { send_data @sightingz.to_csv}
+        end 
     end
  
     def new
@@ -15,7 +20,7 @@ class SightingsController < ApplicationController
     def create
         @sighting = Sighting.new(sighting_params)
         if @sighting.save
-            redirect_to '/sightings'
+            redirect_to user_path(current_user)
         else
             render 'new'
         end

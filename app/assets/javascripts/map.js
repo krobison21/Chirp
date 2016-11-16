@@ -1,3 +1,6 @@
+"use strict"
+
+
 var map = new mapboxgl.Map({
     container: 'map',
     center: [-90, 70],
@@ -23,6 +26,10 @@ var isDragging;
 var isCursorOverPoint;
 
 var coordinates = document.getElementById('coordinates');
+var locationjav =  document.getElementById('sighting_location');
+
+document.getElementById("location-div").style.display = "none ";
+
 
 var map = new mapboxgl.Map({
     container: 'map',
@@ -41,16 +48,9 @@ var geojson = {
             "type": "Point",
             "coordinates": [0, 0]
         }
+        
     }]
 };
-
-/*var longitude = geojson["coordinates"];
-
-window.onclick = function() {
-       //when the document is finished loading, replace everything
-       //between the <a ...> </a> tags with the value of splitText
-   document.getElementById("location").innerHTML=longitude;
-}*/ 
 
 var geocoder = new mapboxgl.Geocoder({
     container: 'geocoder-container' // Optional. Specify a unique container for the control to be added to.
@@ -80,18 +80,29 @@ function onMove(e) {
     // and call setData to the source layer `point` on it.
     geojson.features[0].geometry.coordinates = [coords.lng, coords.lat];
     map.getSource('single-point').setData(geojson);
+
 }
 
 function onUp(e) {
-    if (!isDragging) return;
+    if (!isDragging){
+        
+        return;
+    }
+
     var coords = e.lngLat;
+    
 
     // Print the coordinates of where the point had
     // finished being dragged to on the map.
-    coordinates.style.display = 'block';
+
     coordinates.innerHTML = 'Longitude: ' + coords.lng + '<br />Latitude: ' + coords.lat;
+    
+    locationjav.innerHTML = coords.lng +  ', ' + coords.lat;
+    
     canvas.style.cursor = '';
     isDragging = false;
+    document.getElementById("location-div").style.display = "";
+
 }
 
 
@@ -100,12 +111,18 @@ map.addControl(geocoder);
 // After the map style has loaded on the page, add a source layer and default
 // styling for a single point.
 map.on('load', function() {
-  
     map.addSource('single-point', {
         "type": "geojson",
         "data": {
             "type": "FeatureCollection",
-            "features": []
+            "features": [{
+                
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [0, 0]
+                }
+            }]
         }
     });
 
@@ -119,6 +136,7 @@ map.on('load', function() {
         }
     });
     
+    
     // If a feature is found on map movement,
     // set a flag to permit a mousedown events.
     map.on('mousemove', function(e) {
@@ -127,7 +145,7 @@ map.on('load', function() {
         // Change point and cursor style as a UI indicator
         // and set a flag to enable other mouse events.
         if (features.length) {
-            map.setPaintProperty('point', 'circle-color', '#3bb2d0');
+            map.setPaintProperty('point', 'circle-color', '#007cb"');
             canvas.style.cursor = 'move';
             isCursorOverPoint = true;
             map.dragPan.disable();
@@ -149,7 +167,29 @@ map.on('load', function() {
     geocoder.on('result', function(ev) {
         map.getSource('single-point').setData(ev.result.geometry);
     });
+    
+    
 });
+
+point.features.forEach(function(marker) {
+    // create a DOM element for the marker
+    var el = document.createElement('div');
+    el.className = 'marker';
+    el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
+    el.style.width = marker.properties.iconSize[0] + 'px';
+    el.style.height = marker.properties.iconSize[1] + 'px';
+
+    el.addEventListener('click', function() {
+        window.alert(marker.properties.message);
+    });
+
+    // add marker to map
+    new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(map);
+});
+
+
 
 $("input").keypress(function(event) {
 "use strict";
@@ -170,3 +210,4 @@ if (event.keyCode == 13)
     return false;
 }
 });
+

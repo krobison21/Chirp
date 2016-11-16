@@ -1,13 +1,33 @@
-<h1> Welcome, <%=@user.name%>!</h1>
+<% if !current_user or ((!(current_user.is_researcher?)) and (@user != current_user))  %>
+  <h3>Oops, you need to be logged in to view this page. 
+  Please log in <%=link_to 'here', "/login" %> or with <%= link_to "Facebook", "/auth/facebook"%> and try again.</h3>
 
-<h3>Previous sightings:</h3>
+
+<%else %>
+
+<% if @user == current_user %>
+    <h1> Welcome, <%=@user.name%>!</h1>
+
+    <% if  @sightings.first.nil?%> 
+           <h3> You haven't submitted any sightings yet. Click <%= link_to 'here ', "/sightings/new" %> to get started.</h3>
+    <% else %>
+        <h3>Previous sightings:</h3>
+    <% end %>
+<% else %>
+    <% if  @sightings.first.nil?%> 
+           <h3> <%=@user.name %> hasn't submitted any sightings yet. </h3>
+    <% else %>
+        <h3> <%=@user.name%>'s Previous Sightings:</h3>
+    <% end %>
+<% end %>
+
 
 <% @sightings.each do |s| %>
     <p> Location: <%= s.location %></p>
     <p>Bird was: <br> 
-    <% if s.singing == true %> Singing <br><% end%> 
-    <% if s.aggressive == true %> Aggressive <br><% end%> 
-    <% if s.flying == true %> Flying<br>
+    <% if s.singing == "1" %> Singing <br><% end%> 
+    <% if s.aggressive == "1" %> Aggressive <br><% end%> 
+    <% if s.flying == "1" %> Flying<br>
     <% end%> 
  
     </p> 
@@ -17,7 +37,4 @@
     <p> <%= s.created_at %> </p>
     <% end %>
     
-
-<%= link_to 'Submit a New Sighting', submit_path(:user_id => params[:id]) %> 
-<br>
-<%= link_to 'Home', root_path %>
+<%end%>

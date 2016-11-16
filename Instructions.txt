@@ -6,6 +6,8 @@ from comand line run
 4. \q to quit
 
 To fix heroku:
+git push heroku master
+
 heroku rake db:reset
 heroku rake db:migrate
 heroku rake db:seed
@@ -16,3 +18,10 @@ heroku config:set FACEBOOK_APP_ID=1772681509665630 FACEBOOK_SECRET=de99385ce5564
 To run rspec:
 -bundle exec guard
 -every time you save the file it will run the test
+
+If servers wont work:
+killall ruby
+
+For maps in heroku:
+RAILS_ENV=production bundle exec rake assets:precompile
+heroku run rake assets:precompile

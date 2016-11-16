@@ -1,8 +1,11 @@
 class User < ActiveRecord::Base
-    has_secure_password
-
+    has_secure_password 
     has_many :sightings
     
+    validates_presence_of :name,  :if => :is_created?
+    #validates_confirmation_of :password, :if => :is_created?
+    validates :email, :presence => true, :uniqueness => { :message => "There is already an existing account linked to that email" }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, :if => :is_created?
+
     def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
         user.provider = auth.provider
@@ -14,4 +17,10 @@ class User < ActiveRecord::Base
         user.save!
      end
     end
+    private 
+    def is_created?
+      self.provider == 'created'
+    end
+    #validates_presence_of :state, :granted_at, :if => lambda {self.type != 1}
+
 end

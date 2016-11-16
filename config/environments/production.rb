@@ -79,6 +79,5 @@ Rails.application.configure do
   
   config.serve_static_assets = true
   RAILS_ENV=production bundle exec rake assets:precompile
-  heroku run rake assets:precompile
 
 end

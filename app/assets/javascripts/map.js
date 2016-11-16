@@ -48,16 +48,9 @@ var geojson = {
             "type": "Point",
             "coordinates": [0, 0]
         }
+        
     }]
 };
-
-/*var longitude = geojson["coordinates"];
-
-window.onclick = function() {
-       //when the document is finished loading, replace everything
-       //between the <a ...> </a> tags with the value of splitText
-   document.getElementById("location").innerHTML=longitude;
-}*/ 
 
 var geocoder = new mapboxgl.Geocoder({
     container: 'geocoder-container' // Optional. Specify a unique container for the control to be added to.
@@ -122,7 +115,14 @@ map.on('load', function() {
         "type": "geojson",
         "data": {
             "type": "FeatureCollection",
-            "features": []
+            "features": [{
+                
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [0, 0]
+                }
+            }]
         }
     });
 
@@ -136,6 +136,7 @@ map.on('load', function() {
         }
     });
     
+    
     // If a feature is found on map movement,
     // set a flag to permit a mousedown events.
     map.on('mousemove', function(e) {
@@ -144,7 +145,7 @@ map.on('load', function() {
         // Change point and cursor style as a UI indicator
         // and set a flag to enable other mouse events.
         if (features.length) {
-            map.setPaintProperty('point', 'circle-color', '#3bb2d0');
+            map.setPaintProperty('point', 'circle-color', '#007cb"');
             canvas.style.cursor = 'move';
             isCursorOverPoint = true;
             map.dragPan.disable();
@@ -166,7 +167,28 @@ map.on('load', function() {
     geocoder.on('result', function(ev) {
         map.getSource('single-point').setData(ev.result.geometry);
     });
+    
+    
 });
+
+point.features.forEach(function(marker) {
+    // create a DOM element for the marker
+    var el = document.createElement('div');
+    el.className = 'marker';
+    el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
+    el.style.width = marker.properties.iconSize[0] + 'px';
+    el.style.height = marker.properties.iconSize[1] + 'px';
+
+    el.addEventListener('click', function() {
+        window.alert(marker.properties.message);
+    });
+
+    // add marker to map
+    new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(map);
+});
+
 
 
 $("input").keypress(function(event) {
@@ -188,3 +210,4 @@ if (event.keyCode == 13)
     return false;
 }
 });
+

@@ -78,7 +78,10 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   config.serve_static_assets = true
-  RAILS_ENV=production bundle exec rake assets:precompile
-  heroku run rake assets:precompile
+  
+  #RUN IN COMMAND WINDOW:
+  #RAILS_ENV=production bundle exec rake assets:precompile
+  #heroku run rake assets:precompile
+
 
 end

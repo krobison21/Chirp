@@ -1,3 +1,10 @@
+<% if !current_user or ((!(current_user.is_researcher?)) and (@user != current_user))  %>
+  <h3>Oops, you need to be logged in to view this page. 
+  Please log in <%=link_to 'here', "/login" %> or with <%= link_to "Facebook", "/auth/facebook"%> and try again.</h3>
+
+
+<%else %>
+
 <% if @user == current_user %>
     <h1> Welcome, <%=@user.name%>!</h1>
 
@@ -30,3 +37,4 @@
     <p> <%= s.created_at %> </p>
     <% end %>
     
+<%end%>

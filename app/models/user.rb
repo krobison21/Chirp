@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
     has_secure_password 
     has_many :sightings
     
-    validates_presence_of :name, :password, :if => :is_created?
-    validates_confirmation_of :password, :if => :is_created?
+    validates_presence_of :name,  :if => :is_created?
+    #validates_confirmation_of :password, :if => :is_created?
     validates :email, :presence => true, :uniqueness => { :message => "There is already an existing account linked to that email" }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, :if => :is_created?
 
     def self.from_omniauth(auth)

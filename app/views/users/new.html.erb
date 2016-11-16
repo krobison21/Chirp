@@ -10,9 +10,9 @@
             <ul>
                 <% @user.errors.full_messages.each do |message| %>
                     <li> <%= message %></li>
-                    <%end%>
+                <%end%>
             </ul>
-            <%end%>
+        <%end%>
         <div>
         <%=f.label :name %> <br>
         <%=f.text_area :name %> <br>

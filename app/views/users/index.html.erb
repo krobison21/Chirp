@@ -10,14 +10,29 @@
     <h1>Active Users</h1>
   </div>
 </div>
+<table class = "table table-striped">
+    <tr>
+      <th> User</th>
+      <th> Account Type</th>
+      <th> Email</th>
+      <th> Created</th>
+    </tr>
 
 <% @users.each { |u| %>
-    <h3> User: <%= link_to u.name, user_path(u) %> </h3>
-    <p> Account Type: <%=u.provider %></p>
-    <% if u.provider == "created" %>
-      <p> Email: <%= u.email %></p>
-      <%end %>
-    <p> Created: <%= u.created_at %></p>
+  <tr>
+    <td><%= link_to u.name, user_path(u) %></td>
+    <td> <%=u.provider %></td>
+    <td> 
+      <% if u.provider == "created" %>
+         <%= u.email %>
+      <%else%>
+         N/A 
+      <%end%> 
+    </td>
+    <td><%= u.created_at %> </td>
+  </tr>
+    
     <% } %>
     
 <%end%>
+</table>

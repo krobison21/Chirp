@@ -35,7 +35,7 @@
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="logo">
-			<h1><a href="#">Chirp</a></h1>
+			<h1><%=link_to "Chirp", root_path %></h1>
 			<h5><a href = "#">Signed in as <strong><%= current_user.name %></strong> </a></h3> 
 		</div>
 		<div id="menu">
@@ -45,6 +45,7 @@
      
        <ul>
        <li id = "home"><%= link_to 'Homepage', root_path %></li></li>
+       <li id = "previoussightings"> <%= link_to "Previous Sightings", user_path(current_user)%> </li> 
 			 <li id: "submit"><a href="/sightings/new" accesskey="2" title="">Submit a Sighting</a></li>
 			 <li id = "sign_out"> <%= link_to "Sign out", signout_path%> </li>
 		<% if current_user.is_researcher? %>

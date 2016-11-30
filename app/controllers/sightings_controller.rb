@@ -3,7 +3,7 @@ class SightingsController < ApplicationController
     end
     
     def index
-        @sightings = Sighting.all.paginate(page: params[:page], per_page: 5)
+        @sightings = Sighting.all.paginate(page: params[:page], per_page: 10)
         @sightingz = Sighting.all
         respond_to do |format|
             format.html

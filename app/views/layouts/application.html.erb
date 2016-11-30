@@ -49,7 +49,7 @@
         <% if current_user %>
             <li class='active'> <%= link_to 'Homepage', root_path %> </li>
             <li><%= link_to "Previous Sightings", user_path(current_user)%></li>
-            <li><%= link_to "Submit a Sighting", 'sightings/new/' %></li>
+            <li><%= link_to "Submit a Sighting", '/sightings/new/' %></li>
 		        <li><%= link_to "Sign out", signout_path%> </li>
 			
 		        <% if current_user.is_researcher? %>

@@ -20,7 +20,11 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to root_path
         else
-            render 'new'
+            if @user.is_created?
+                render 'new'
+            else
+                render 'newguest'
+            end
             #flash[:error] = @users.errors # Not quite right!
         end
     end

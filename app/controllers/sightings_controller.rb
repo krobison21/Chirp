@@ -14,6 +14,7 @@ class SightingsController < ApplicationController
     def new
         @sighting = Sighting.new
         #@sighting.user_id = params['user_id']
+        @maximum_length = Sighting.validators_on( :notes ).first.options[:maximum]
         
     end
     

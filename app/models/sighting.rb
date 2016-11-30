@@ -1,6 +1,8 @@
 require 'csv'
 class Sighting < ActiveRecord::Base
     belongs_to :user
+    validates :location, :presence => true
+    validates_length_of :notes, :maximum => 150
     def self.to_csv
         CSV.generate do |csv|
             csv << column_names

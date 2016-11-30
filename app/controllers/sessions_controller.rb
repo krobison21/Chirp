@@ -15,9 +15,9 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       flash[:notice] = 'Invalid email/password combination' # Not quite right!
-      #render 'new', :notice => "Invalid email or password"
-      puts 'Error'
-      #WONT DISPLAY THE FLASH ERROR
+      render 'new', :notice => "Invalid email or password"
+      #puts 'Error'
+
 
     end
   end

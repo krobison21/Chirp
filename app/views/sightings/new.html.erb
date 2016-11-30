@@ -13,10 +13,10 @@
 }
 </style>
 
-
+<div class="col-md-6 col-md-offset-1">
 <div class="form">
     <%= form_for(@sighting) do |f| %>
-    
+
     
     <div class="fields-container">
         <div class = "checkbox">
@@ -42,7 +42,9 @@
         <div class = "field">
             <div class="field-choice">
                 <%=f.label :notes, "Notes" %>
-                <%=f.text_area :notes %>
+                <%=f.text_area :notes, maxlength: @maximum_length, id: 'comment' %>
+                Chars left: <span id="counter" data-maximum-length="<%= @maximum_length %>"><%= @maximum_length %></span>
+
             </div>
         </div>
             
@@ -73,12 +75,30 @@
                 <%=f.submit "Submit" %>
         </div>
 
+<div class="col-md-6 col-md-offset-1">
+            <% if @sighting.errors.any? %>
 
-        
+                <% @sighting.errors.full_messages.each do |message| %>
+                    <p  class="bg-danger"> <%= message %><p>
+                <%end%>
+</div>
+    <%end%>
+    </div>
     </div>
     <% end %>
 </div>
+<script>
+    $(document).ready(function() {
+      var comment = $("#comment");
+      var counter     = $("#counter");
+      var max_length  = counter.data("maximum-length");
 
+      comment.keyup(function() {
+          counter.text(max_length - $(this).val().length);
+      });
+
+    });
+</script>
 
 </body>
 

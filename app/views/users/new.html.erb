@@ -1,18 +1,12 @@
-<h1> Create an Account </h1>
-
-
-<div class = "row">
+<div class = "container">
     <div class="col-md-6 col-md-offset-3">
+        <h1> Create an Account </h1>
+
+
+
+
         <%= form_for(@user) do |f| %>
         
-        <% if @user.errors.any? %>
-            <h2> Errors: </h2>
-            <ul>
-                <% @user.errors.full_messages.each do |message| %>
-                    <li> <%= message %></li>
-                <%end%>
-            </ul>
-        <%end%>
         <div>
         <%=f.label :name %> 
         <%=f.text_area :name, class: 'form-control' %> 
@@ -34,8 +28,15 @@
         <div>
             <%= f.submit "Create my account", class: "btn btn-primary" %>
         </div>
+        
+        <% if @user.errors.any? %>
+
+                <% @user.errors.full_messages.each do |message| %>
+                    <p class="bg-danger"> <%= message %></p>
+                <%end%>
+        <%end%>
         <% end %>
-    </div>
+ 
 </div>
 
 

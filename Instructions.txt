@@ -29,3 +29,20 @@ heroku run rake assets:precompile
 Perri's CSS (to include in application.html.erb)
     <link href="default.css" rel="stylesheet" type="text/css" media="all" />
     <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+
+If creating new workspace do:
+    From C9 workspace:
+        -sudo service postgresql start  
+        -psql
+    From the Postgresql interface, create three new databases.
+        -Create database db_development ubuntu=# Createdatabasedb_test
+        -Create database db_production
+        -Create database db_production
+        -\q
+    From C9 workspace:
+        -bundle install
+         -rake db:create
+         -rake db:migrate
+  
+ 
+ 

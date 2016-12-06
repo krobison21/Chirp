@@ -19,7 +19,7 @@
         
         <% if @user.errors.any? %>
                 <% @user.errors.full_messages.each do |message| %>
-                    <br><p class="bg-danger"> <%= message %></p>
+                    <br><p class="alert alert-danger"> <%= message %></p>
                 <%end%>
         <%end%>
         <% end %>

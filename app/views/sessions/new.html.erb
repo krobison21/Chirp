@@ -16,7 +16,7 @@
       <%= f.submit "Log in", class: "btn btn-primary" %>
       
       <% if flash[:notice] %>
-       <p class="bg-danger"> "<%= flash[:notice] %>" </p>
+       <p class="alert alert-danger"> "<%= flash[:notice] %>" </p>
       <% end %>
       <%end%>
 

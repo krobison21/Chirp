@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
     
     validates_presence_of :name
     #validates_confirmation_of :password, :if => :is_created?
-    validates :email, :presence => true, :uniqueness => { :message => "There is already an existing account linked to that email" }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, :if => :is_created?
+    validates :email, :presence => true, :uniqueness => {:message => "- There is already an existing account linked to that email" }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, :if => :is_created?
     validates_length_of :name, :maximum => 50, :if => :is_guest?
 
     def self.from_omniauth(auth)

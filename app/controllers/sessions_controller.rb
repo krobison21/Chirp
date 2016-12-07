@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    flash[:notice]= nil
   end
   
   def create_fb

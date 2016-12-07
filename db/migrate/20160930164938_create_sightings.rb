@@ -2,6 +2,7 @@ class CreateSightings < ActiveRecord::Migration
   def change
     create_table :sightings do |t|
       #t.string :username
+      t.string :typez
       t.string :location
       t.string :singing
       t.string :aggressive

@@ -81,8 +81,12 @@
                 <% @sighting.errors.full_messages.each do |message| %>
                     <p  class="alert alert-danger"> <%= message %><p>
                 <%end%>
+           <% end %>
+            <% if flash[:notice] %>
+                   <p class="alert alert-danger"> "<%= flash[:notice] %>" </p>
+            <%end%>
+             
 </div>
-    <%end%>
     </div>
     </div>
     <% end %>

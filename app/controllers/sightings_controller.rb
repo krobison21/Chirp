@@ -23,6 +23,9 @@ class SightingsController < ApplicationController
         if @sighting.save
             redirect_to user_path(current_user)
         else
+            if @sighting.is_behaviorblank?
+                flash[:notice] = "At least one behavior option must be checked"
+            end
             render 'new'
         end
     end
@@ -34,6 +37,8 @@ class SightingsController < ApplicationController
     def sighting_params
         params.require(:sighting).permit(:location,:singing,:aggressive,:flying,:other, :notes,:user_id)
     end
+    
+  
 
     
 

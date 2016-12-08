@@ -196,24 +196,6 @@ map.on('load', function() {
         .addTo(map);
 });*/
 
-geocoder_control.on('select', function(object){
-
-    map.mapbox.featureLayer({
-        type: 'Feature',
-        geometry: {
-            type: 'Point',
-            coordinates: coord
-        },
-        properties: {
-            title: 'Peregrine Espresso',
-            'marker-size': 'large',
-            'marker-color': '#BE9A6B',
-            'marker-symbol': 'cafe'
-        }
-    }).addTo(map);
-
-});
-
 
 
 $("input").keypress(function(event) {

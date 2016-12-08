@@ -196,6 +196,24 @@ map.on('load', function() {
         .addTo(map);
 });*/
 
+geojson.features.forEach(function(marker) {
+    // create a DOM element for the marker
+    var el = document.createElement('div');
+    el.className = 'marker';
+    el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
+    el.style.width = marker.properties.iconSize[0] + 'px';
+    el.style.height = marker.properties.iconSize[1] + 'px';
+
+    el.addEventListener('click', function() {
+        window.alert(marker.properties.message);
+    });
+
+    // add marker to map
+    new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(map);
+});
+
 
 
 $("input").keypress(function(event) {

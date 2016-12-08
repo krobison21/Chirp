@@ -21,7 +21,8 @@ class SightingsController < ApplicationController
     
     def create
         @sighting = Sighting.new(sighting_params)
-        if @sighting.save
+        
+        if @sighting.save 
             redirect_to user_path(current_user)
         else
             if @sighting.is_behaviorblank?

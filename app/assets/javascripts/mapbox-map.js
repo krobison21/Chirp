@@ -1,19 +1,20 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibXBlbGljaGV0IiwiYSI6ImNpZ3doNWVvYzBzNXN2cW0zd2N5ZnBvY2YifQ.2RlTuIjDz1pLYOP4YpdKyw';
 
+
 var map = new mapboxgl.Map({
     container: 'map',
     center: [-90, 70],
     zoom: 2
-});
+})
 
 map.on('mousemove', function (e) {
     document.getElementById('info').innerHTML =
         // e.point is the x, y coordinates of the mousemove event relative
         // to the top-left corner of the map
-        JSON.stringify(e.point) + '<br />' +
+        JSON.stringify(e.single-point) + '<br />' +
             // e.lngLat is the longitude, latitude geographical position of the event
         JSON.stringify(e.lngLat);
-})
+});
 
 
 //geocoder option
@@ -45,7 +46,7 @@ var geojson = {
         "type": "Feature",
         "geometry": {
             "type": "Point",
-            "coordinates": [0, 0]
+            "coordinates": [-90.1203, 29.9412]
         }
         
     }]
@@ -84,7 +85,7 @@ function onMove(e) {
 
 function onUp(e) {
     if (!isDragging){
-        
+    
         return;
     }
 
@@ -104,12 +105,18 @@ function onUp(e) {
 
 }
 
+map.addControl(new mapboxgl.NavigationControl());
 
 map.addControl(geocoder);
+
+geocoder.on('load', function(ev) {
+        map.getSource('single-point').setData(ev.result.geometry);
+    });
 
 // After the map style has loaded on the page, add a source layer and default
 // styling for a single point.
 map.on('load', function() {
+
     map.addSource('single-point', {
         "type": "geojson",
         "data": {
@@ -119,9 +126,10 @@ map.on('load', function() {
                 "type": "Feature",
                 "geometry": {
                     "type": "Point",
-                    "coordinates": [0, 0]
+                    "coordinates": [-90.1203, 29.9412]
                 }
-            }]
+            }],
+            
         }
     });
 
@@ -187,6 +195,24 @@ map.on('load', function() {
         .setLngLat(marker.geometry.coordinates)
         .addTo(map);
 });*/
+
+geocoder_control.on('select', function(object){
+
+    map.mapbox.featureLayer({
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            coordinates: coord
+        },
+        properties: {
+            title: 'Peregrine Espresso',
+            'marker-size': 'large',
+            'marker-color': '#BE9A6B',
+            'marker-symbol': 'cafe'
+        }
+    }).addTo(map);
+
+});
 
 
 

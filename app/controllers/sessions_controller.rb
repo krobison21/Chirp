@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    flash[:notice]= nil
+    flash.clear
   end
   
   def create_fb
@@ -18,7 +18,6 @@ class SessionsController < ApplicationController
       flash[:notice] = 'Invalid email/password combination' # Not quite right!
       render 'new', :notice => "Invalid email or password"
       #puts 'Error'
-
 
     end
   end

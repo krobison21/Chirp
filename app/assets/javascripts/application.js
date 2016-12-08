@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require_tree .
 //= require mapbox-map
+//= require mapbox-map-1
+
 

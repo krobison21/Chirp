@@ -1,11 +1,11 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibXBlbGljaGV0IiwiYSI6ImNpZ3doNWVvYzBzNXN2cW0zd2N5ZnBvY2YifQ.2RlTuIjDz1pLYOP4YpdKyw';
 
 
-var map = new mapboxgl.Map({
+/*var map = new mapboxgl.Map({
     container: 'map',
     center: [-90, 70],
     zoom: 2
-})
+})*/
 
 map.on('mousemove', function (e) {
     document.getElementById('info').innerHTML =
@@ -196,7 +196,7 @@ map.on('load', function() {
         .addTo(map);
 });*/
 
-geojson.features.forEach(function(marker) {
+/*geojson.features.forEach(function(marker) {
     // create a DOM element for the marker
     var el = document.createElement('div');
     el.className = 'marker';
@@ -212,7 +212,7 @@ geojson.features.forEach(function(marker) {
     new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
         .setLngLat(marker.geometry.coordinates)
         .addTo(map);
-});
+});*/
 
 
 

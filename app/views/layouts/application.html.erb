@@ -55,6 +55,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
             <li class='active'> <%= link_to 'Homepage', root_path %> </li>
+<<<<<<< HEAD
             <li><%= link_to "Previous Sightings", user_path(current_user)%></li>
             <li><%= link_to "Submit a Sighting", '/sightings/new/' %></li>
 		        <li><%= link_to "Sign out", signout_path%> </li>
@@ -63,6 +64,17 @@
 		          <li><%= link_to "View All Sightings", '/sightings' %></li>
 		          <li><%= link_to "View All Users", '/users' %></li>
             <% end %>
+=======
+            <li><%= link_to "My Sightings", user_path(current_user)%></li>
+            <li><%= link_to "Submit a Sighting", 'sightings/new/' %></li>
+            <% if current_user.is_researcher? %>
+		          <li><%= link_to "All Sightings", '/sightings' %></li>
+		          <li><%= link_to "All Users", '/users' %></li>
+            <% end %>
+		        <li><%= link_to "Sign out", signout_path%> </li>
+			
+		        
+>>>>>>> navbar_naming
 	     
 	      <% else %>
           <li class='active'><%= link_to 'Homepage', root_path %></li>

@@ -48,14 +48,15 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
             <li class='active'> <%= link_to 'Homepage', root_path %> </li>
-            <li><%= link_to "Previous Sightings", user_path(current_user)%></li>
+            <li><%= link_to "My Sightings", user_path(current_user)%></li>
             <li><%= link_to "Submit a Sighting", 'sightings/new/' %></li>
+            <% if current_user.is_researcher? %>
+		          <li><%= link_to "All Sightings", '/sightings' %></li>
+		          <li><%= link_to "All Users", '/users' %></li>
+            <% end %>
 		        <li><%= link_to "Sign out", signout_path%> </li>
 			
-		        <% if current_user.is_researcher? %>
-		          <li><%= link_to "View All Sighitngs", '/sightings' %></li>
-		          <li><%= link_to "View All Users", '/users' %></li>
-            <% end %>
+		        
 	     
 	      <% else %>
           <li class='active'><%= link_to 'Homepage', root_path %></li>

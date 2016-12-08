@@ -35,7 +35,7 @@ class SightingsController < ApplicationController
         
     private 
     def sighting_params
-        params.require(:sighting).permit(:location,:singing,:aggressive,:flying,:other, :notes,:user_id)
+        params.require(:sighting).permit(:location,:typez, :singing,:aggressive,:flying,:other, :notes,:user_id)
     end
     
   

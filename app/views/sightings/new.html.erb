@@ -17,10 +17,24 @@
 <div class="form">
     <%= form_for(@sighting) do |f| %>
 
-    
-    <div class="fields-container">
-        div class 
-        
+
+    <div class= "fields-container">
+        <div class = "radio_button">
+            <%=f.label :typez, "Type of Sighting" %> 
+       <div class="radio" data-toggle="button">
+          <label><input type="radio" name="optradio"> 
+          <%= f.radio_button(:typez, "Bird") %>
+            <%= label_tag(:typez, "Bird") %>
+            </label>
+        </div>
+        <div class="radio" data-toggle="button">
+          <label><input type="radio" name="optradio">
+          <%= f.radio_button(:typez, "Nest") %>
+            <%= label_tag(:typez, "Nest") %>
+            </label>
+           </div>
+           </div>
+
         <div class = "checkbox">
             <%=f.label :behavior, "Behavior" %> 
             <div class="checkbox-choice", data-toggle="tooltip" title="The individual bird is actively singing">
@@ -112,7 +126,6 @@
 
 
 </html>
-
 
 
 

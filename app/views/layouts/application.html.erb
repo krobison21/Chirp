@@ -9,8 +9,6 @@
     
 	<!--BootStrap -->
 	
-
-	
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -24,8 +22,10 @@
   <!-- Optional theme -->
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   
+  <!--Font Awesome -->
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   
-    <!-- MapBox -->
+  <!-- MapBox -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.3.1/mapbox-gl-geocoder.js'></script>
@@ -55,26 +55,13 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
             <li class='active'> <%= link_to 'Homepage', root_path %> </li>
-<<<<<<< HEAD
-            <li><%= link_to "Previous Sightings", user_path(current_user)%></li>
-            <li><%= link_to "Submit a Sighting", '/sightings/new/' %></li>
-		        <li><%= link_to "Sign out", signout_path%> </li>
-			
-		        <% if current_user.is_researcher? %>
-		          <li><%= link_to "View All Sightings", '/sightings' %></li>
-		          <li><%= link_to "View All Users", '/users' %></li>
-            <% end %>
-=======
             <li><%= link_to "My Sightings", user_path(current_user)%></li>
-            <li><%= link_to "Submit a Sighting", 'sightings/new/' %></li>
+            <li><%= link_to "Submit a Sighting", '/sightings/new/' %></li>
             <% if current_user.is_researcher? %>
 		          <li><%= link_to "All Sightings", '/sightings' %></li>
 		          <li><%= link_to "All Users", '/users' %></li>
             <% end %>
-		        <li><%= link_to "Sign out", signout_path%> </li>
-			
-		        
->>>>>>> navbar_naming
+			      <li><a href="/signout">Sign Out <span class="glyphicon glyphicon-log-out"></span></a></li>
 	     
 	      <% else %>
           <li class='active'><%= link_to 'Homepage', root_path %></li>

@@ -23,11 +23,9 @@ class SightingsController < ApplicationController
         @sighting = Sighting.new(sighting_params)
         
         if @sighting.save 
+            flash[:success] = "Thank you for contributing to the Tulane Mocking Bird Research Project! Your help is much appreciated!"
             redirect_to user_path(current_user)
         else
-            if @sighting.is_behaviorblank?
-                flash[:notice] = "At least one behavior option must be checked"
-            end
             render 'new'
         end
     end

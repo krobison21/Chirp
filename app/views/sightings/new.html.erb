@@ -58,7 +58,7 @@
         <div class = "field">
             <div class="field-choice">
                 <%=f.label :notes, "Notes" %>
-                <%=f.text_area :notes, maxlength: @maximum_length, id: 'comment' %>
+                <%=f.text_area :notes, maxlength: @maximum_length, id: 'comment',class: 'form-control' , size: "36x6"%>
                 Chars left: <span id="counter" data-maximum-length="<%= @maximum_length %>"><%= @maximum_length %></span>
 
             </div>
@@ -98,9 +98,7 @@
                     <p  class="alert alert-danger"> <%= message %><p>
                 <%end%>
            <% end %>
-            <% if flash[:notice] %>
-                   <p class="alert alert-danger"> "<%= flash[:notice] %>" </p>
-            <%end%>
+
              
 </div>
     </div>

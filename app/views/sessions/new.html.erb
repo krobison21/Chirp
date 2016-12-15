@@ -18,7 +18,7 @@
       <p>New user? <%= link_to "Sign up now!", '/users/new' %></p>
  
       <% if flash[:notice] %>
-       <p class="alert alert-danger"> "<%= flash[:notice] %>" </p>
+       <p class="alert alert-danger"> <%= flash[:notice] %> </p>
       <% end %>
       <%end%>
 

@@ -1,8 +1,9 @@
+<div class = "container" >
 <% if !current_user or !current_user.is_researcher? %>
   <h3>Sorry, you need special permission to view this page. 
   Please log in <%=link_to 'here', "/login" %> with the approproate
   credintials to view this page.</h3>
-
+</div>
 
 <%else %>
 

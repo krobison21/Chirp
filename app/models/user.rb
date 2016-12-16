@@ -27,5 +27,5 @@ class User < ActiveRecord::Base
       self.provider == 'guest'
     end
     #validates_presence_of :state, :granted_at, :if => lambda {self.type != 1}
-
+ 
 end

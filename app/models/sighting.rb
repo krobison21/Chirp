@@ -6,7 +6,17 @@ class BehaviorValidator < ActiveModel::Validator
         end
             
     end
-
+end  
+class LocationValidator < ActiveModel::Validator
+    def validate(record)
+        l=record.location.split(",")
+        lat=l[0].to_i
+        long=l[1].to_i
+        if ! ((lat > (29.951560-0.5) and lat < (29.951560 + 0.5)) and (long > (-90.152753-0.5) and long < (-90.152753+0.5)) )
+            record.errors[:base] << "Location is outside of allowable area"
+        end
+    end
+        
 end
 class Sighting < ActiveRecord::Base
     belongs_to :user
@@ -14,6 +24,7 @@ class Sighting < ActiveRecord::Base
     validates_length_of :notes, :maximum => 150
     validates_with BehaviorValidator
     validates :typez, :presence => {:message => "cannot be blank. Please select an option." }
+    validates_with LocationValidator
     
     def self.to_csv
         CSV.generate do |csv|
@@ -24,6 +35,6 @@ class Sighting < ActiveRecord::Base
         end
     end
 
-    
+
 
 end

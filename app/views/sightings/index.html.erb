@@ -1,6 +1,4 @@
-<head>
-        <%= stylesheet_link_tag "app\assets\stylesheets\sightings.scss" %>
-</head>
+
 <body>
   <% if !current_user or !current_user.is_researcher? %>
     <h3>Sorry, you need special permission to view this page. 
@@ -55,8 +53,15 @@
   <p>Download: <%= link_to "CSV", sightings_path(format: "csv") %> |</p>
 </div>
 
-    <%end%>
-    
+<%end%>
+
+
+<style>
+    #map2 { position:relative; height: 300px; width:50%; z-index: 2; margin: 0 auto; }
+</style>
+
+<div id='map2'></div>
+
 <%= javascript_include_tag 'mapbox-map-1.js'%>
 
 </body>

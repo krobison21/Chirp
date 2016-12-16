@@ -22,14 +22,15 @@ map.on('load', function () {
                     "title": "Mapbox DC",
                     "icon": "monument"
                 }
-            }, {
+            }, 
+            
+            {
                 "type": "Feature",
                 "geometry": {
                     "type": "Point",
                     "coordinates": [-122.414, 37.776]
                 },
                 "properties": {
-                    "title": "Mapbox SF",
                     "icon": "harbor"
                 }
             }]

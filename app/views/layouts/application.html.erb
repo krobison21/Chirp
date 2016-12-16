@@ -65,21 +65,22 @@
 	     </div>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-            <li class='active'> <%= link_to 'Homepage', root_path %> </li>
-            <li><%= link_to "My Sightings", user_path(current_user)%></li>
-            <li><%= link_to "Submit a Sighting", '/sightings/new/' %></li>
+            <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Homepage', root_path %> </li>
+            <li class="<%= 'active' if current_page?user_path(current_user) %>"><%= link_to "My Sightings", user_path(current_user)%></li>
+            <li class="<%= 'active' if current_page?(submit_path) %>"><%= link_to "Submit a Sighting", '/sightings/new/' %></li>
+
             <% if current_user.is_researcher? %>
-		          <li><%= link_to "All Sightings", '/sightings' %></li>
-		          <li><%= link_to "All Users", '/users' %></li>
+		          <li class="<%= 'active' if current_page?(allSightings_path) %>"><%= link_to "All Sightings", '/sightings' %></li>
+		          <li class="<%= 'active' if current_page?(allUsers_path) %>"><%= link_to "All Users", '/users' %></li>
             <% end %>
 			      <li><a href="/signout">Sign Out <span class="glyphicon glyphicon-log-out"></span></a></li>
 	     
 	      <% else %>
-          <li class='active'><%= link_to 'Homepage', root_path %></li>
+          <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Homepage', root_path %></li>
           <li> <%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
-          <li> <%= link_to "Create an Account", "/users/new" %></li>
-          <li> <%= link_to "Log in", "/login" %></li>
-          <li> <%= link_to "Proceed as Guest", "/guest" %></li>
+          <li class="<%= 'active' if current_page?(newUser_path) %>"> <%= link_to "Create an Account", "/users/new" %></li>
+          <li class="<%= 'active' if current_page?(login_path) %>"> <%= link_to "Log in", "/login" %></li>
+          <li class="<%= 'active' if current_page?(guest_path) %>"> <%= link_to "Proceed as Guest", "/guest" %></li>
       	<% end %>
 	  </ul>
   </div>

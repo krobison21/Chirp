@@ -16,15 +16,15 @@
   <table class="table table-striped table-hover">
 
     <tr>
-      <th class="col-sm-1">Name</th>
-      <th class="col-sm-2">Location</th>
-      <th class="col-sm-1">Type</th>
-      <th class="col-sm-1">Singing</th>
-      <th class="col-sm-1">Aggressive</th>
-      <th class="col-sm-1">Flying</th>
-      <th class="col-sm-1">Other</th>
-      <th class="col-sm-3">Notes</th>
-      <th class="col-sm-1">Time</th>
+      <th class="col-sm-1"><%= sortable "user_id", "Name"%> </th>
+      <th class="col-sm-2"><%= sortable "location", "Location"%></th>
+      <th class="col-sm-1"><%= sortable "typez", "Type"%></th>
+      <th class="col-sm-1"><%= sortable "singing", "Singing"%></th>
+      <th class="col-sm-1"><%= sortable "aggressive", "Aggressive"%></th>
+      <th class="col-sm-1"><%= sortable "flying", "Flying"%></th>
+      <th class="col-sm-1"><%= sortable "other", "Other"%></th>
+      <th class="col-sm-3"><%= sortable "notes", "Notes"%></th>
+      <th class="col-sm-1"><%= sortable "created_at", "Time"%></th>
     </tr>
 
     <% @sightings.each do  |s| %>

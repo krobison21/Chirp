@@ -13,7 +13,7 @@
 
 <div class="container">
 
-  <table class="table table-striped table-hover">
+  <table id ="table_id" class="table table-striped table-hover">
     <tr>
       <th>Name</th>
       <th>Location</th>
@@ -30,7 +30,7 @@
        <% u=User.find( s.user_id) %>
       <tr>
         <td><%= u.name %> </td>
-        <td><%= s.location %> </td>
+        <td class="locate" id="<%= s.location %> "> <%= s.location %> </td>
         <td><%= s.typez %></td>
 
         <td><%= s.singing %> </td>

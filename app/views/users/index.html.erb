@@ -13,10 +13,10 @@
 
 <table class = "table table-striped table-hover">
     <tr>
-      <th> User</th>
-      <th> Account Type</th>
-      <th> Email</th>
-      <th> Created</th>
+      <th><%= sortable "user", "User"%> </th>
+      <th> <%= sortable "provider", "Account Type"%></th>
+      <th> <%= sortable "email", "Email"%></th>
+      <th> <%= sortable "created_at", "Created"%></th>
     </tr>
 
 <% @users.each { |u| %>

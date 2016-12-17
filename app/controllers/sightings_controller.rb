@@ -1,9 +1,12 @@
 class SightingsController < ApplicationController
+    helper_method :sort_column, :sort_direction
+    
+    
     def welcome
     end
     
     def index
-        @sightings = Sighting.all.paginate(page: params[:page], per_page: 10)
+        @sightings = Sighting.all.order(sort_column+ " "+ sort_direction).paginate(page: params[:page], per_page: 10)
         @sightingz = Sighting.all
         respond_to do |format|
             format.html
@@ -31,8 +34,14 @@ class SightingsController < ApplicationController
     end
     def info
     end
-    
-        
+    private
+    def sort_column
+        Sighting.column_names.include?(params[:sort]) ? params[:sort] : "user_id"
+    end
+    private
+    def sort_direction
+        %w[asc desc].include?(params[:direction])?  params[:direction] : "asc"
+    end
     private 
     def sighting_params
         params.require(:sighting).permit(:location,:typez, :singing,:aggressive,:flying,:other, :notes,:user_id)

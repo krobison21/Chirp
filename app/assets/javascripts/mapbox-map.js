@@ -5,7 +5,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     center: [-90, 70],
     zoom: 2
-})
+});
 
 map.on('mousemove', function (e) {
     document.getElementById('info').innerHTML =

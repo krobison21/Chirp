@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
+    helper_method :sort_column, :sort_direction
+    
     def createaccount
     end
     
     def index
-     @users = User.all.paginate(page: params[:page], per_page: 10)
+     @users = User.all.order(sort_column + " " + sort_direction).paginate(page: params[:page], per_page: 10)
  
 
     end
@@ -35,7 +37,14 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @sightings = @user.sightings.all.paginate(page: params[:page], per_page: 10)
     end
-    
+    private
+    def sort_column
+         User.column_names.include?(params[:sort]) ? params[:sort] : "user"
+    end
+    private
+    def sort_direction
+         %w[asc desc].include?(params[:direction])?  params[:direction] : "asc"
+    end
     private
     def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation, :provider)

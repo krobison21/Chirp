@@ -1,6 +1,4 @@
-<head>
-        <%= stylesheet_link_tag "app\assets\stylesheets\sightings.scss" %>
-</head>
+
 <body>
   <div class = "container" >
   <% if !current_user or !current_user.is_researcher? %>
@@ -19,15 +17,15 @@
   <table class="table table-striped table-hover">
 
     <tr>
-      <th class="col-sm-1">Name</th>
-      <th class="col-sm-2">Location</th>
-      <th class="col-sm-1">Type</th>
-      <th class="col-sm-1">Singing</th>
-      <th class="col-sm-1">Aggressive</th>
-      <th class="col-sm-1">Flying</th>
-      <th class="col-sm-1">Other</th>
-      <th class="col-sm-3">Notes</th>
-      <th class="col-sm-1">Time</th>
+      <th class="col-sm-1"><%= sortable "user_id", "Name"%> </th>
+      <th class="col-sm-2"><%= sortable "location", "Location"%></th>
+      <th class="col-sm-1"><%= sortable "typez", "Type"%></th>
+      <th class="col-sm-1"><%= sortable "singing", "Singing"%></th>
+      <th class="col-sm-1"><%= sortable "aggressive", "Aggressive"%></th>
+      <th class="col-sm-1"><%= sortable "flying", "Flying"%></th>
+      <th class="col-sm-1"><%= sortable "other", "Other"%></th>
+      <th class="col-sm-3"><%= sortable "notes", "Notes"%></th>
+      <th class="col-sm-1"><%= sortable "created_at", "Time"%></th>
     </tr>
 
     <% @sightings.each do  |s| %>
@@ -59,8 +57,15 @@
   <button type="button" class="btn btn-default"><%= link_to "Download CSV", sightings_path(format: "csv") %></button>
 </div>
 
-    <%end%>
-    
+<%end%>
+
+
+<style>
+    #map2 { position:relative; height: 500px; width:50%; z-index: 2; margin: 0 auto; }
+</style>
+
+<div id='map2'></div>
+
 <%= javascript_include_tag 'mapbox-map-1.js'%>
 
 </body>

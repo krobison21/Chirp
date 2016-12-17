@@ -1,13 +1,12 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibXBlbGljaGV0IiwiYSI6ImNpZ3doNWVvYzBzNXN2cW0zd2N5ZnBvY2YifQ.2RlTuIjDz1pLYOP4YpdKyw';
 
-/*var map = new mapboxgl.Map({
+
+var map = new mapboxgl.Map({
     container: 'map2',
     style: 'mapbox://styles/mapbox/streets-v9',
     center: [-90.1203, 29.9412],
-    zoom: 3
-});*/
-
-
+    zoom: 11.15
+});
 
 var elements = document.getElementsByClassName("locate");
 
@@ -16,8 +15,6 @@ var names = [];
 for(var i=0; i < elements.length; i++) {
     names += elements[i].id ;
 }
-
-/*document.write(names);*/
 
 function isFloat(val) {
     var floatRegex = /^-?\d+(?:[.,]\d*?)?$/;
@@ -40,13 +37,13 @@ function isInt(val) {
     return parseFloat(val) == intVal && !isNaN(intVal);
 }
 
-var numbers = [];
+var numbers = '';
 
 for(var i=0; i < names.length; i++) {
     
     var number = names[i];
     var negative_number = names.slice(number, number+4);
-    if (number === '.' || number === ' ' || number === ','){
+    if (number === '.' || number === ' ' || number === ',' || number === '-'){
         number === number;
         numbers += number ;
     }
@@ -56,96 +53,92 @@ for(var i=0; i < names.length; i++) {
     }
 }
 
-/*document.write(numbers);*/
+/*This separates the latititude and longitude coordinates in the numbers array*/
+numbers = numbers.replace(/^\s*?(-?[0-9]+\.?[0-9]+?)\s*,\s*(-?[0-9]+\.?[0-9]+?)\s*$/).split(/[\s,]+/);
 
-var latlong = numbers
-var coords = latlong.match(/\((-?[0-9\.]+), (-?[0-9\.]+)\)/);
+for(var i=1; i < numbers.length; i++) {
+    parseFloat(numbers[i]);
+}
 
-var lat = coords[1];
-document.write(lat);
+/*document.write(numbers[1]);
+document.write(numbers[2]);
+document.write(numbers[3]);*/
+document.write(numbers[4]);
 
-var long = coords[2];
-document.write(long);
 
-alert('lat: ' + lat);
-alert('long: ' + long);
-
-var places = {
+var geojson = {
     "type": "FeatureCollection",
-    "features": [{
-        "type": "Feature",
-        "properties": {
-            "icon": "theatre"
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": [100, 100]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[3],
+                    numbers[4]
+                ]
+            }
         },
-        "geometry": {
-            "type": "Point",
-            "coordinates": [-77.038659, 38.931567]
-        }
-    }, {
-        "type": "Feature",
-        "properties": {
-            "icon": "theatre"
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Bar",
+                "iconSize": [50, 50]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -61.2158203125,
+                    -15.97189158092897
+                ]
+            }
         },
-        "geometry": {
-            "type": "Point",
-            "coordinates": [-77.003168, 38.894651]
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Baz",
+                "iconSize": [40, 40]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -63.29223632812499,
+                    -18.28151823530889
+                ]
+            }
         }
-    }, {
-        "type": "Feature",
-        "properties": {
-            "icon": "bar"
-        },
-        "geometry": {
-            "type": "Point",
-            "coordinates": [-77.090372, 38.881189]
-        }
-    }, {
-        "type": "Feature",
-        "properties": {
-            "icon": "bicycle"
-        },
-        "geometry": {
-            "type": "Point",
-            "coordinates": [-77.052477, 38.943951]
-        }
-    }, {
-        "type": "Feature",
-        "properties": {
-            "icon": "music"
-        },
-        "geometry": {
-            "type": "Point",
-            "coordinates": [-77.031706, 38.914581]
-        }
-    }, {
-        "type": "Feature",
-        "properties": {
-            "icon": "music"
-        },
-        "geometry": {
-            "type": "Point",
-            "coordinates": [-77.020945, 38.878241]
-        }
-    }, {
-        "type": "Feature",
-        "properties": {
-            "icon": "music"
-        },
-        "geometry": {
-            "type": "Point",
-            "coordinates": [-77.007481, 38.876516]
-        }
-    }]
+    ]
 };
 
-var filterGroup = document.getElementById('filter-group');
+geojson.features.forEach(function(marker) {
+    // create a DOM element for the marker
+    var el = document.createElement('div');
+    el.className = 'marker';
+    el.style.backgroundImage = 'url(http://www.clker.com/cliparts/3/e/2/9/1194985418834879623uccello_profilo_01_archi_01.svg.med.png)'
+    http://www.clker.com/cliparts/3/e/2/9/1194985418834879623uccello_profilo_01_archi_01.svg.med.png
+    el.style.width = marker.properties.iconSize[0] + 'px';
+    el.style.height = marker.properties.iconSize[1] + 'px';
 
-var map = new mapboxgl.Map({
-    container: 'map2',
-    style: 'mapbox://styles/mapbox/light-v9',
-    center: [-77.04, 38.907],
-    zoom: 11.15
+    el.addEventListener('click', function() {
+        window.alert(marker.properties.message);
+    });
+
+    // add marker to map
+    new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 7, -marker.properties.iconSize[1] / 7]})
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(map);
 });
+
+
+
+/*var filterGroup = document.getElementById('filter-group');
+
+
+
 
 map.on('load', function() {
     // Add a GeoJSON source containing place coordinates and information.
@@ -166,7 +159,7 @@ map.on('load', function() {
                 "source": "places",
                 "layout": {
                     "icon-image": symbol + "-15",
-                    "icon-allow-overlap": true
+                    "icon-allow-overlap": false
                 },
                 "filter": ["==", "icon", symbol]
             });
@@ -190,4 +183,4 @@ map.on('load', function() {
             });
         }
     });
-});
+});*/

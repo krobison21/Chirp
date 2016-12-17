@@ -30,13 +30,13 @@
        <% u=User.find( s.user_id) %>
       <tr>
         <td><%= u.name %> </td>
-        <td class="locate" id="<%= s.location %>"> <%= s.location %> </td>
+        <td class="locate" id="<%= s.location %>, "> <%= s.location %> </td>
         <td><%= s.typez %></td>
 
-        <td><%= s.singing %> </td>
-        <td><%= s.aggressive %> </td>
-        <td><%= s.flying %> </td>
-        <td><%= s.other %> </td>
+        <td class="singing" id="<%= s.singing %>"><%= s.singing %> </td>
+        <td class="agressive" id="<%= s.aggressive %>"><%= s.aggressive %> </td>
+        <td class="fying" id="<%= s.other %>"><%= s.flying %> </td>
+        <td class="other" id="<%= s.other %>"><%= s.other %> </td>
         <td><%= s.notes %> </td>
         <td><%= s.created_at %> </td>
       </tr>
@@ -52,7 +52,6 @@
 <div class="container">
   <p>Download: <%= link_to "CSV", sightings_path(format: "csv") %> </p>
 </div>
-
 
 
 

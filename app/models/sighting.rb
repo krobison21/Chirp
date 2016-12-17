@@ -13,7 +13,7 @@ class LocationValidator < ActiveModel::Validator
         long=l[0].to_f
         lat=l[1].to_f
         
-        if  ( (lat > 29.91233809790043) or (lat < 29.888230511268134)) or ((long > -90.16767854003984) or (long < -90.2459561279306) )
+        if  ( (lat < 29.91233809790043) or (lat > 29.959345980944207) or (long < -90.16767854003984) or (long > -90.06330842285232) )
             record.errors[:base] << "Location is outside of allowable area."
         end
     end

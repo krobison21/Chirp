@@ -10,9 +10,10 @@ end
 class LocationValidator < ActiveModel::Validator
     def validate(record)
         l=record.location.split(",")
-        lat=l[0].to_i
-        long=l[1].to_i
-        if ! ((lat > (29.951560-0.5) and lat < (29.951560 + 0.5)) and (long > (-90.152753-0.5) and long < (-90.152753+0.5)) )
+        long=l[0].to_f
+        lat=l[1].to_f
+        
+        if  ( (lat > 30.039) or (lat < 29.867)) or ((long > -89.985) or (long < -90.3129) )
             record.errors[:base] << "Location is outside of allowable area."
         end
     end

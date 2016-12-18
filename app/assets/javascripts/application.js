@@ -19,7 +19,6 @@
 //= require bootstrap-notify.js
 //= require bootstrap.min.js
 //= require chartist.min.js
-//= require demo.js
 //= require jquery-3.1.0.min.js
 //= require material-dashboard.js
 //= require material.min.js

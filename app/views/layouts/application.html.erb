@@ -48,12 +48,13 @@
 	   <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
               <li class="sidebar-brand">
-                <%=link_to "Chirp", root_path %></h1>
+                <h2><%=link_to "Chirp", root_path %></h2>
+                <br/>
                 <% if current_user %>
                 <%if current_user.provider=='guest' %>
                 <h3 class="navbar-header">Welcome, <strong><%= current_user.name %>!</strong> </h3>
                 <%else%>
-	  	           <h3 class="navbar-header">Signed in as <strong><%= current_user.name %></strong> </h3>
+	  	           <li class="navbar-header">Signed in as <strong><%= current_user.name %></strong> </li>
 	  	            <%end%>
 	               <%end%>
 	             </li>

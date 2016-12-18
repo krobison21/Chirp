@@ -45,12 +45,10 @@
         <% end %>
     <%end%>
 
-This is the user page
-    
-
 <% @sightings.each do |s| %>
 <tr> 
-    <td> <%= s.location %> </td>
+    <!--The format of the id is extremely important!!! Don't touch ;(!!!-->
+    <td class="locate" id=" <%= s.location %>, "> <%= s.location %> </td>
     <td> <%= s.typez %></td>
     <td>
         <% if s.singing == "1" %> Singing <br><% end%> 
@@ -66,6 +64,46 @@ This is the user page
    
 <%end%>
 </table>
+
+<div id='map2'></div>
+<nav id='filter-group' class='filter-group'></nav>
+
+
+<style>
+    #map2 { position:relative; height: 500px; width:50%; z-index: 2; margin: 0 auto; }
+    .mapboxgl-ctrl-bottom-right{
+      visibility:hidden;
+      display:none;
+      background-color:black;
+    }
+    
+    .mapboxgl-marker:hover{
+      cursor: default;
+      color: blue;
+    }
+    
+    .mapboxgl-marker:hover{
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 15px 10px 15px;
+    }
+    
+    
+    min-height: 640px;
+    
+   /*.mapboxgl-ctrl-attrib{
+    display: none;
+    }
+    .mapboxgl-ctrl{
+      display: none;
+    }*/
+    
+</style>
+
+
+<%= javascript_include_tag 'mapbox-map-1.js'%>
 </div>
 <div class="container">
   <div class = "paginate">

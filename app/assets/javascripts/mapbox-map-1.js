@@ -652,10 +652,6 @@ geojson.features.forEach(function(marker) {
     el.style.backgroundImage = 'url(https://s24.postimg.org/yg2froix1/23_birds_flying_silhouette_free_cliparts_that_yo.png) ';
     el.style.width = marker.properties.iconSize[0] + 'px';
     el.style.height = marker.properties.iconSize[1] + 'px';
-
-    el.addEventListener('click', function() {
-    });
-
     // add marker to map
     new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
         .setLngLat(marker.geometry.coordinates)

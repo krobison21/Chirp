@@ -32,12 +32,12 @@
        <% u=User.find( s.user_id) %>
       <tr>
         <td><%= u.name %> </td>
-        <td class="locate" id="<%= s.location %>, "> <%= s.location %> </td>
+        <!--The format of the id is extremely important!!! Don't touch ;(!!!-->
+        <td class="locate" id=" <%= s.location %>, "> <%= s.location %> </td>
         <td><%= s.typez %></td>
-
         <td class="singing" id="<%= s.singing %>"><%= s.singing %> </td>
         <td class="agressive" id="<%= s.aggressive %>"><%= s.aggressive %> </td>
-        <td class="fying" id="<%= s.other %>"><%= s.flying %> </td>
+        <td class="flying" id="<%= s.other %>"><%= s.flying %> </td>
         <td class="other" id="<%= s.other %>"><%= s.other %> </td>
         <td><%= s.notes %> </td>
       
@@ -45,6 +45,7 @@
       </tr>
     <% end %> 
   </table>
+  
 </div>
 
 <div class="container">

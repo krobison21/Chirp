@@ -19,6 +19,12 @@ for(var i=0; i < elements.length; i++) {
     names += elements[i].id ;
 }
 
+
+/*for(var i = 0; i < names.length; i++){
+   names_2[i] = names[i];
+}*/
+
+
 function isFloat(val) {
     var floatRegex = /^-?\d+(?:[.,]\d*?)?$/;
     if (!floatRegex.test(val))
@@ -42,6 +48,8 @@ function isInt(val) {
 
 var numbers = '';
 
+
+
 for(var i=0; i < names.length; i++) {
     
     var number = names[i];
@@ -62,6 +70,8 @@ numbers = numbers.replace(/^\s*?(-?[0-9]+\.?[0-9]+?)\s*,\s*(-?[0-9]+\.?[0-9]+?)\
 for(var i=1; i < numbers.length; i++) {
     parseFloat(numbers[i]);
 }
+
+
 
 var iconSize =  [60,60];
 

@@ -5,8 +5,10 @@ var map = new mapboxgl.Map({
     container: 'map2',
     style: 'mapbox://styles/mapbox/streets-v9',
     center: [-90.1203, 29.9412],
-    zoom: 11.15
+    zoom: 15
 });
+
+map.addControl(new mapboxgl.NavigationControl());
 
 var elements = document.getElementsByClassName("locate");
 
@@ -65,6 +67,7 @@ document.write(numbers[2]);
 document.write(numbers[3]);*/
 document.write(numbers[4]);
 
+var iconSize =  [60,60];
 
 var geojson = {
     "type": "FeatureCollection",
@@ -72,8 +75,24 @@ var geojson = {
         {
             "type": "Feature",
             "properties": {
+                "message": "<strong>Maket Mount Pleasant</strong>",
+                "iconSize":iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[1],
+                    numbers[2]
+                ],
+                
+            },
+
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "message": "Foo",
-                "iconSize": [100, 100]
+                "iconSize": iconSize
             },
             "geometry": {
                 "type": "Point",
@@ -86,31 +105,537 @@ var geojson = {
         {
             "type": "Feature",
             "properties": {
-                "message": "Bar",
-                "iconSize": [50, 50]
+                "message": "Foo",
+                "iconSize": iconSize
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -61.2158203125,
-                    -15.97189158092897
+                    numbers[5],
+                    numbers[6]
                 ]
             }
         },
         {
             "type": "Feature",
             "properties": {
-                "message": "Baz",
-                "iconSize": [40, 40]
+                "message": "Foo",
+                "iconSize": iconSize
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -63.29223632812499,
-                    -18.28151823530889
+                    numbers[7],
+                    numbers[8]
                 ]
             }
-        }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[9],
+                    numbers[10]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[11],
+                    numbers[12]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[13],
+                    numbers[14]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize":iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[15],
+                    numbers[16]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[17],
+                    numbers[18]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[19],
+                    numbers[20]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[21],
+                    numbers[22]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[23],
+                    numbers[24]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[25],
+                    numbers[26]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[27],
+                    numbers[28]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[29],
+                    numbers[30]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[31],
+                    numbers[32]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[33],
+                    numbers[34]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[35],
+                    numbers[36]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[37],
+                    numbers[38]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[39],
+                    numbers[40]
+                ]
+            }
+        },
+        
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[41],
+                    numbers[42]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[43],
+                    numbers[44]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[45],
+                    numbers[46]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[47],
+                    numbers[48]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": [60,60]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[49],
+                    numbers[50]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[51],
+                    numbers[52]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[53],
+                    numbers[54]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[55],
+                    numbers[56]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[57],
+                    numbers[58]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[59],
+                    numbers[60]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[61],
+                    numbers[62]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[63],
+                    numbers[64]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[65],
+                    numbers[66]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[67],
+                    numbers[68]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[69],
+                    numbers[10]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[71],
+                    numbers[72]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[73],
+                    numbers[74]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[75],
+                    numbers[76]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[77],
+                    numbers[78]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": iconSize
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    numbers[79],
+                    numbers[80]
+                ]
+            }
+        },
+        
     ]
 };
 
@@ -118,69 +643,23 @@ geojson.features.forEach(function(marker) {
     // create a DOM element for the marker
     var el = document.createElement('div');
     el.className = 'marker';
-    el.style.backgroundImage = 'url(http://www.clker.com/cliparts/3/e/2/9/1194985418834879623uccello_profilo_01_archi_01.svg.med.png)'
-    http://www.clker.com/cliparts/3/e/2/9/1194985418834879623uccello_profilo_01_archi_01.svg.med.png
+    el.style.backgroundImage = 'url(https://s24.postimg.org/yg2froix1/23_birds_flying_silhouette_free_cliparts_that_yo.png) ';
     el.style.width = marker.properties.iconSize[0] + 'px';
     el.style.height = marker.properties.iconSize[1] + 'px';
 
     el.addEventListener('click', function() {
-        window.alert(marker.properties.message);
     });
 
     // add marker to map
-    new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 7, -marker.properties.iconSize[1] / 7]})
+    new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
         .setLngLat(marker.geometry.coordinates)
         .addTo(map);
 });
 
 
 
-/*var filterGroup = document.getElementById('filter-group');
+
+var filterGroup = document.getElementById('filter-group');
 
 
-
-
-map.on('load', function() {
-    // Add a GeoJSON source containing place coordinates and information.
-    map.addSource("places", {
-        "type": "geojson",
-        "data": places
-    });
-
-    places.features.forEach(function(feature) {
-        var symbol = feature.properties['icon'];
-        var layerID = 'poi-' + symbol;
-
-        // Add a layer for this symbol type if it hasn't been added already.
-        if (!map.getLayer(layerID)) {
-            map.addLayer({
-                "id": layerID,
-                "type": "symbol",
-                "source": "places",
-                "layout": {
-                    "icon-image": symbol + "-15",
-                    "icon-allow-overlap": false
-                },
-                "filter": ["==", "icon", symbol]
-            });
-
-            // Add checkbox and label elements for the layer.
-            var input = document.createElement('input');
-            input.type = 'checkbox';
-            input.id = layerID;
-            input.checked = true;
-            filterGroup.appendChild(input);
-
-            var label = document.createElement('label');
-            label.setAttribute('for', layerID);
-            label.textContent = symbol;
-            filterGroup.appendChild(label);
-
-            // When the checkbox changes, update the visibility of the layer.
-            input.addEventListener('change', function(e) {
-                map.setLayoutProperty(layerID, 'visibility',
-                    e.target.checked ? 'visible' : 'none');
-            });
-        }
-    });
-});*/
+var birds = document.getElementsByClassName('marker mapboxgl-marker');

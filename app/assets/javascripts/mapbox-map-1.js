@@ -1,88 +1,5 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibXBlbGljaGV0IiwiYSI6ImNpZ3doNWVvYzBzNXN2cW0zd2N5ZnBvY2YifQ.2RlTuIjDz1pLYOP4YpdKyw';
 
-<<<<<<< HEAD
-=======
-var map = new mapboxgl.Map({
-    container: 'map2',
-    style: 'mapbox://styles/mapbox/streets-v9',
-    center: [-90.1203, 29.9412],
-    zoom: 3
-});
-
-map.on('load', function () {
-    map.addSource("points", {
-        "type": "geojson",
-        "data": {
-            "type": "FeatureCollection",
-            "features": [{
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [-77.03238901390978, 38.913188059745586]
-                },
-                "properties": {
-                    "title": "Mapbox DC",
-                    "icon": "monument"
-                }
-            }, 
-            
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [-122.414, 37.776]
-                },
-                "properties": {
-                    "icon": "harbor"
-                }
-            }]
-        }
-    });
-
-    map.addLayer({
-        "id": "points",
-        "type": "symbol",
-        "source": "points",
-        "layout": {
-            "icon-image": "{icon}-15",
-            "text-field": "{title}",
-            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-            "text-offset": [0, 0.6],
-            "text-anchor": "top"
-        }
-    });
-});
-
-/*var map = new mapboxgl.Map({
-    container: 'map2',
-    center: [-90, 70],
-    zoom: 2
-});
-
-map.on('mousemove', function (e) {
-    document.getElementById('info').innerHTML =
-        // e.point is the x, y coordinates of the mousemove event relative
-        // to the top-left corner of the map
-        JSON.stringify(e.single-point) + '<br />' +
-            // e.lngLat is the longitude, latitude geographical position of the event
-        JSON.stringify(e.lngLat);
-});
-
-
-//geocoder option
-
-var isDragging;
-
-// Is the cursor over a point? if this
-// flag is active, we listen for a mousedown event.
-var isCursorOverPoint;
-
-//var coordinates = document.getElementById('coordinates');
-//var locationjav =  document.getElementById('sighting_location');
-
-//document.getElementById("location-div").style.display = "none ";
-
->>>>>>> master
 
 var map = new mapboxgl.Map({
     container: 'map2',
@@ -90,6 +7,8 @@ var map = new mapboxgl.Map({
     center: [-90.1203, 29.9412],
     zoom: 15
 });
+
+
 
 map.addControl(new mapboxgl.NavigationControl());
 

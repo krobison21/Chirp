@@ -4,7 +4,14 @@
 
 
 <%else %>
+<div class = "container" >
+    <% if flash[:success] %>
+       <p class="alert alert-success"> <%= flash[:success] %> </p>
+      <% end %>
+</div>
 <div class="container">
+    
+      
     <% if @user == current_user %>
         <h1> Welcome, <%=@user.name%>!</h1>
 

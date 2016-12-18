@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'auth/:provider/callback', to: 'sessions#create_fb'
+  get 'auth/:provider/callback', to: 'sessions#create_fb', as: :fblogin
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
  
@@ -8,23 +8,23 @@ Rails.application.routes.draw do
   resource :home, only: [:show]
  
  #regular log in:
-  get    '/login',   to: 'sessions#new'
+  get    '/login',   to: 'sessions#new', as: :login
   post   '/login',   to: 'sessions#create_reg'
   
   root to: "home#show"
   #root 'sightings#welcome'
   get 'sightings' => 'sightings#index'
   get 'sightings/new/' => 'sightings#new', as: :submit
-  post 'sightings' => 'sightings#create'
+  post 'sightings' => 'sightings#create', as: :allSightings
   get 'info' => 'sightings#info'
   
   #Creating an account:
-  get 'users' => 'users#index'
-  get 'users/new' => 'users#new'
+  get 'users' => 'users#index' , as: :allUsers
+  get 'users/new' => 'users#new', as: :newUser
   post 'users' => 'users#create'
   
   #Log in as Guest:
-  get 'guest' => 'users#newguest'
+  get 'guest' => 'users#newguest', as: :guest
   
   
   #User Dashboard:

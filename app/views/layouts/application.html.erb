@@ -30,6 +30,7 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.3.1/mapbox-gl-geocoder.js'></script>
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.3.1/mapbox-gl-geocoder.css' type='text/css' />
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Solid" rel="stylesheet">
 
       
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -57,7 +58,7 @@
 	               <%end%>
 	             </li>
           <% if current_user %>
-              <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Homepage', root_path %> </li>
+              <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to '', root_path %> </li>
               <li class="<%= 'active' if current_page?user_path(current_user) %>"><%= link_to "My Sightings", user_path(current_user)%></li>
               <li class="<%= 'active' if current_page?(submit_path) %>"><%= link_to "Submit a Sighting", '/sightings/new/' %></li>
   
@@ -69,7 +70,6 @@
   	     
   	     
   	      <% else %>
-            <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Homepage', root_path %></li>
             <li> <%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
             <li class="<%= 'active' if current_page?(newUser_path) %>"> <%= link_to "Create an Account", "/users/new" %></li>
             <li class="<%= 'active' if current_page?(login_path) %>"> <%= link_to "Log in", "/login" %></li>

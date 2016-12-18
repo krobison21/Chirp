@@ -1,25 +1,72 @@
-<div class="container">
-<h1> Northern Mockingbird</h1>
-<h2><em> Mimus polyglottos </em>  </h2>
 
+
+<style>
+  .bg-1{
+    background-color: #5A8F29;
+    color: #ffffff;
+  }
+  .bg-2{
+    background-color: #006699;
+    color: #ffffff;
+  }
+  .bg-3{
+    background-color: #ffffff;
+    color: #555555;
+  }
+  .bg-5{
+    background-color: #007cbf;
+    color: #ffffff;
+  }
+</style>
+<style>
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+</style>
 <body> 
-    <h3>Description</h3>
-    <p>
-    The Northern Mockingbird is a widespread North American songbird species. Adult birds are grey 
+<div class="container-fluid bg-1 text-center">
+  <h3>Chirp</h3>
+  <img src="https://www.allaboutbirds.org/guide/PHOTO/LARGE/northern_mockingbird_7.jpg" class="img-circle" alt="Bird">
+  <h3>Northern Mocking Bird Tracking Project</h3>
+</div>
+    
+<div class="container-fluid bg-2 text-center">
+  <h3>Description</h3>
+  <h1> Northern Mockingbird</h1>
+<h2><em> Mimus polyglottos </em>  </h2>
+  <p> The Northern Mockingbird is a widespread North American songbird species. Adult birds are grey 
     and black with white markings, including white wing bars. <em>M. polyglottos</em> is an omnivore, primarily feeding on insects and berries.
     The most distinguishing and notable feature of the Northern Mockingbird is its ability to mimic noises and other bird songs. Northern Mockingbirds
-    are territorial and mate during the spring. 
-    <br>
-    <img src = " https://upload.wikimedia.org/wikipedia/commons/6/67/Mockingbird,_Northern_SunsetBeach.jpg" style = "width:150px;height:128px;">
-    </p>
-    <h4>Distribution</h4>
-    <figure>
+    are territorial and mate during the spring. </p>
+</div>
+
+<div class="container-fluid bg-3 text-center">
+  <h3>Distribution</h3>
+  <p>    <figure>
     <img src = "http://www.audubon.org/sites/default/files/Northern-Mockingbird_map.jpg" style = "width:150px;height:128px;">
     <br>
     <figcapture style="font-size:60%;"><em>Illustration © David Allen Sibley</em></figcapture>
 </figure>
-    
+<h2><%= link_to "Have you seen us?", '/sightings/new/' %></h2></p>
 </div>
+
+<div class="container-fluid bg-5 text-center"> 
+  <h3>Who are we?</h3>
+  <div class="row">
+    <div class="col-sm-6">
+      <p>The Research Team</p>
+      <a target="_blank" href = "https://karubian.tulane.edu"><img src="https://karubian.tulane.edu/wp-content/uploads/sites/9/2016/10/smaller_lab_oct2016.jpg" width="400" height="200" alt="Image"></a>
+    </div>
+    <div class="col-sm-6">
+      <p>The Development Team</p>
+      <a target="_blank"  href ="https://chirpdev.wordpress.com"><img src="http://www2.tulane.edu/drla/images/Tulane_1.jpg" width="400" height="200" alt="Image"></a>
+    </div>
+  </div>
+</div>    
+
+    
+
 </body>
 
 

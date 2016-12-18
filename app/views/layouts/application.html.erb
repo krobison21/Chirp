@@ -18,7 +18,7 @@
   	
   	<!-- Latest compiled and minified CSS -->
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    
     <!-- Optional theme -->
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   
@@ -39,49 +39,46 @@
 </head>
 
 <body>
-<div class="container">
-	<h1><%=link_to "Chirp", root_path %></h1>
-</div>
 
 
 <!-- Navigation Bar -->
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header"> 
-        <% if current_user %>
-          <%if current_user.provider=='guest' %>
-              <h3 class="navbar-header">Welcome, <strong><%= current_user.name %>!</strong> </h3>
-          <%else%>
-	  	         <h3 class="navbar-header">Signed in as <strong><%= current_user.name %></strong> </h3>
-	  	    <%end%>
-	     <%end%>
-	     </div>
-      <ul class="nav navbar-nav navbar-right">
-        <% if current_user %>
-            <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Homepage', root_path %> </li>
-            <li class="<%= 'active' if current_page?user_path(current_user) %>"><%= link_to "My Sightings", user_path(current_user)%></li>
-            <li class="<%= 'active' if current_page?(submit_path) %>"><%= link_to "Submit a Sighting", '/sightings/new/' %></li>
-
-            <% if current_user.is_researcher? %>
-		          <li class="<%= 'active' if current_page?(allSightings_path) %>"><%= link_to "All Sightings", '/sightings' %></li>
-		          <li class="<%= 'active' if current_page?(allUsers_path) %>"><%= link_to "All Users", '/users' %></li>
-            <% end %>
-			      <li><a href="/signout">Sign Out <span class="glyphicon glyphicon-log-out"></span></a></li>
-	     
-	      <% else %>
-          <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Homepage', root_path %></li>
-          <li> <%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
-          <li class="<%= 'active' if current_page?(newUser_path) %>"> <%= link_to "Create an Account", "/users/new" %></li>
-          <li class="<%= 'active' if current_page?(login_path) %>"> <%= link_to "Log in", "/login" %></li>
-          <li class="<%= 'active' if current_page?(guest_path) %>"> <%= link_to "Proceed as Guest", "/guest" %></li>
-      	<% end %>
-	  </ul>
-  </div>
-</nav>
-
+<div id="wrapper"> 
+  
+	   <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+              <li class="sidebar-brand">
+                <%=link_to "Chirp", root_path %></h1>
+                <% if current_user %>
+                <%if current_user.provider=='guest' %>
+                <h3 class="navbar-header">Welcome, <strong><%= current_user.name %>!</strong> </h3>
+                <%else%>
+	  	           <h3 class="navbar-header">Signed in as <strong><%= current_user.name %></strong> </h3>
+	  	            <%end%>
+	               <%end%>
+	             </li>
+          <% if current_user %>
+              <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Homepage', root_path %> </li>
+              <li class="<%= 'active' if current_page?user_path(current_user) %>"><%= link_to "My Sightings", user_path(current_user)%></li>
+              <li class="<%= 'active' if current_page?(submit_path) %>"><%= link_to "Submit a Sighting", '/sightings/new/' %></li>
+  
+              <% if current_user.is_researcher? %>
+  		          <li class="<%= 'active' if current_page?(allSightings_path) %>"><%= link_to "All Sightings", '/sightings' %></li>
+  		          <li class="<%= 'active' if current_page?(allUsers_path) %>"><%= link_to "All Users", '/users' %></li>
+              <% end %>
+  			      <li><a href="/signout">Sign Out <span class="glyphicon glyphicon-log-out"></span></a></li>
+  	     
+  	     
+  	      <% else %>
+            <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Homepage', root_path %></li>
+            <li> <%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
+            <li class="<%= 'active' if current_page?(newUser_path) %>"> <%= link_to "Create an Account", "/users/new" %></li>
+            <li class="<%= 'active' if current_page?(login_path) %>"> <%= link_to "Log in", "/login" %></li>
+            <li class="<%= 'active' if current_page?(guest_path) %>"> <%= link_to "Proceed as Guest", "/guest" %></li>
+        	<% end %>
+  	    </ul>
+      </div>
 <%= yield %>
-
-<div class="container">
+<!--<div class="container">
   <div class="row">
   <hr>
     <div class="col-lg-12">
@@ -93,7 +90,23 @@
       </div>
     </div>
   </div>
+</div>-->
+
 </div>
+
+ <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
 
 </body>
 </html>

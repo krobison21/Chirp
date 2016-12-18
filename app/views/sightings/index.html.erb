@@ -1,74 +1,72 @@
 
 <body>
-  <div class = "container" >
+  
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
   <% if !current_user or !current_user.is_researcher? %>
     <h3>Sorry, you need special permission to view this page. 
       Please log in <%=link_to 'here', "/login" %> with the approproate
       credintials to view this page.</h3>
- </div>
 
   <%else %>
-    <div class="container">
-      <h1>Bird Sightings</h1>
+        <h1>Bird Sightings</h1>
+        
+          <div id='map2'></div>
+        
+          <table id ="table_id" class="table table-striped table-hover">
+            <tr>
+              <th class="col-sm-1"><%= sortable "user_id", "Name"%> </th>
+              <th class="col-sm-2"><%= sortable "location", "Location"%></th>
+              <th class="col-sm-1"><%= sortable "typez", "Type"%></th>
+              <th class="col-sm-1"><%= sortable "singing", "Singing"%></th>
+              <th class="col-sm-1"><%= sortable "aggressive", "Aggressive"%></th>
+              <th class="col-sm-1"><%= sortable "flying", "Flying"%></th>
+              <th class="col-sm-1"><%= sortable "other", "Other"%></th>
+              <th class="col-sm-3"><%= sortable "notes", "Notes"%></th>
+              <th class="col-sm-1"><%= sortable "created_at", "Time"%></th>
+            </tr>
+        
+            <% @sightings.each do  |s| %>
+               <% u=User.find( s.user_id) %>
+              <tr>
+                <td><%= u.name %> </td>
+                <!--The format of the id is extremely important!!! Don't touch ;(!!!-->
+                <td class="locate" id=" <%= s.location %>, "> <%= s.location %> </td>
+                <td><%= s.typez %></td>
+                <td class="singing" id="<%= s.singing %>"><%= s.singing %> </td>
+                <td class="agressive" id="<%= s.aggressive %>"><%= s.aggressive %> </td>
+                <td class="flying" id="<%= s.other %>"><%= s.flying %> </td>
+                <td class="other" id="<%= s.other %>"><%= s.other %> </td>
+                <td><%= s.notes %> </td>
+              
+                <td><%= s.created_at %> </td>
+              </tr>
+            <% end %>
+          </table>
+          
+          
+          <div><div class = "paginate"><%= will_paginate @sightings %></div></div>
+          
+          <div><button type="button" class="btn btn-default"><%= link_to "Download CSV", sightings_path(format: "csv") %></button></div>
     </div>
-
-<div class="container">
-
-
-  <table id ="table_id" class="table table-striped table-hover"
-    <tr>
-      <th class="col-sm-1"><%= sortable "user_id", "Name"%> </th>
-      <th class="col-sm-2"><%= sortable "location", "Location"%></th>
-      <th class="col-sm-1"><%= sortable "typez", "Type"%></th>
-      <th class="col-sm-1"><%= sortable "singing", "Singing"%></th>
-      <th class="col-sm-1"><%= sortable "aggressive", "Aggressive"%></th>
-      <th class="col-sm-1"><%= sortable "flying", "Flying"%></th>
-      <th class="col-sm-1"><%= sortable "other", "Other"%></th>
-      <th class="col-sm-3"><%= sortable "notes", "Notes"%></th>
-      <th class="col-sm-1"><%= sortable "created_at", "Time"%></th>
-    </tr>
-
-    <% @sightings.each do  |s| %>
-       <% u=User.find( s.user_id) %>
-      <tr>
-        <td><%= u.name %> </td>
-        <!--The format of the id is extremely important!!! Don't touch ;(!!!-->
-        <td class="locate" id=" <%= s.location %>, "> <%= s.location %> </td>
-        <td><%= s.typez %></td>
-        <td class="singing" id="<%= s.singing %>"><%= s.singing %> </td>
-        <td class="agressive" id="<%= s.aggressive %>"><%= s.aggressive %> </td>
-        <td class="flying" id="<%= s.other %>"><%= s.flying %> </td>
-        <td class="other" id="<%= s.other %>"><%= s.other %> </td>
-        <td><%= s.notes %> </td>
-      
-        <td><%= s.created_at %> </td>
-      </tr>
-    <% end %> 
-  </table>
-  
 </div>
-
-<div class="container">
-  <div class = "paginate">
-    <%= will_paginate @sightings %>
-  </div>
-</div>
-<div class="container">
-  <button type="button" class="btn btn-default"><%= link_to "Download CSV", sightings_path(format: "csv") %></button>
-</div>
-
-
 
 
 
 <%end%>
 
-<div id='map2'></div>
-<nav id='filter-group' class='filter-group'></nav>
+
 
 
 <style>
-    #map2 { position:relative; height: 500px; width:50%; z-index: 2; margin: 0 auto; }
+    #map2 { position:relative; height: 400px; width:auto; z-index: 2; margin: 0 auto; }
+
+    .mapboxgl-map{
+      width: auto;
+      position; relative;
+    }
     .mapboxgl-ctrl-bottom-right{
       visibility:hidden;
       display:none;

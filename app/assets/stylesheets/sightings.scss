@@ -18,10 +18,6 @@ table{
     color: black;
 }
 
-.wrapper {
-  width: 100%;
-}
-
 .datatable {
   width: 50%;
   border: 2px solid black;
@@ -114,21 +110,21 @@ table{
 
 .map-container{
   height: 500px;
-  display:table;
   position: relative;
-  width: 700px;
-  max-width: 700px;
-  margin: 20px 20px 0px 0px;
+  width: auto;
+}
+
+.mapboxgl-map { 
+    height:500px;
+    width: auto;
+  }
+
+.mapboxgl-ctrl-bottom-right{
+  display: none;
 }
 
 #map { 
-  position:relative;
-  bottom:0;
-  width:inherit;
-  height:100%;
-  display: table-cell;
-  float:right;
-  
+   display: table-cell;
   .mapboxgl-ctrl-bottom-right{
     display: none;
   }
@@ -140,17 +136,17 @@ table{
   display:none;
 }
 
-.side-panel{
+/*.side-panel{
   display: table;
   height: auto;
   width: auto;
   float: left;
-  /*background-color: blue;*/
+  /*background-color: blue;
   position: absolute;
   top: 20px;
   left: 20px;
 }
-
+*/
 
 
 #geocoder-container {

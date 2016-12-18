@@ -6,64 +6,73 @@
 <div id="page-content-wrapper">
     <div class="container-fluid">
       <div class="row">
-        <div>
-            <%= form_for(@sighting) do |f| %>
-        
-        
-                <div class = "radio_button">
-                    <%=f.label :typez, "Type of Sighting" %> 
-               <div class="radio" data-toggle="button">
-                  <label><input type="radio" name="optradio"> 
-                  <%= f.radio_button(:typez, "Bird") %>
-                    <%= label_tag(:typez, "Bird") %>
-                    </label>
-                </div>
-                <div class="radio" data-toggle="button">
-                  <label><input type="radio" name="optradio">
-                  <%= f.radio_button(:typez, "Nest") %>
-                    <%= label_tag(:typez, "Nest") %>
-                    </label>
-                   </div>
-                   </div>
-            
-                <div>
-                    <%=f.label :behavior, "Behavior" %> 
-                    <div data-toggle="tooltip" title="The individual bird is actively singing">
-                        <%= f.check_box(:singing) %>
-                        <%= label_tag(:singing, "Singing") %>
-                    </div>
-                    <div data-toggle="tooltip" title="The individual bird is actively displaying aggressive behavior, such as....">
-                        <%= f.check_box(:aggressive) %>
-                        <%= label_tag(:aggressive, "Aggressive") %>
-                    </div>
-                    <div data-toggle="tooltip" title="The individual bird is actively flying">
-                        <%= f.check_box(:flying) %>
-                        <%= label_tag(:flying, "Flying") %>
-                    </div>
-                    <div data-toggle="tooltip" title="The individual bird is displaying other behavior or traits that are not defined above. Please describe in notes.">
-                        <%= f.check_box(:other) %>
-                        <%= label_tag(:other, "Other") %>
-                    </div>
-                </div>
+
+            <div class="sighting-form">
+                <div class="options">
+                    <%= form_for(@sighting) do |f| %>
+                        
+                        
                 
-                <div>
-                    <%=f.label :notes, "Notes" %>
-                    <%=f.text_area :notes, maxlength: @maximum_length, id: 'comment',class: 'form-control' , size: "36x6"%>
-                    Chars left: <span id="counter" data-maximum-length="<%= @maximum_length %>"><%= @maximum_length %></span>
-        
+                        <div class = "radio_button">
+                            <%=f.label :typez, "Type of Sighting" %> 
+                       <div class="radio" data-toggle="button">
+                          <label><input type="radio" name="optradio"> 
+                          <%= f.radio_button(:typez, "Bird") %>
+                            <%= label_tag(:typez, "Bird") %>
+                            </label>
+                        </div>
+                        <div class="radio" data-toggle="button">
+                          <label><input type="radio" name="optradio">
+                          <%= f.radio_button(:typez, "Nest") %>
+                            <%= label_tag(:typez, "Nest") %>
+                            </label>
+                           </div>
+                           </div>
+                    
+                        <div>
+                            <%=f.label :behavior, "Behavior" %> 
+                            <div data-toggle="tooltip" title="The individual bird is actively singing">
+                                <%= f.check_box(:singing) %>
+                                <%= label_tag(:singing, "Singing") %>
+                            </div>
+                            <div data-toggle="tooltip" title="The individual bird is actively displaying aggressive behavior, such as....">
+                                <%= f.check_box(:aggressive) %>
+                                <%= label_tag(:aggressive, "Aggressive") %>
+                            </div>
+                            <div data-toggle="tooltip" title="The individual bird is actively flying">
+                                <%= f.check_box(:flying) %>
+                                <%= label_tag(:flying, "Flying") %>
+                            </div>
+                            <div data-toggle="tooltip" title="The individual bird is displaying other behavior or traits that are not defined above. Please describe in notes.">
+                                <%= f.check_box(:other) %>
+                                <%= label_tag(:other, "Other") %>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <%=f.label :notes, "Notes" %>
+                            <%=f.text_area :notes, maxlength: @maximum_length, id: 'comment',class: 'form-control' , size: "36x6"%>
+                            Chars left: <span id="counter" data-maximum-length="<%= @maximum_length %>"><%= @maximum_length %></span>
+                
+                        </div>
+                            
+                            
+                        <div>
+                            
+                            <div>
+                                <%=f.label :location, "Location" %> 
+                                <%=f.text_area :location %>
+                                <%= f.hidden_field :user_id, value: current_user.id %>
+                
+                            </div>
+                            Try out our interactive map! Type in your location to drop a map marker.Click the marker to reveal your longitude
+                            and latitude. Feel free to move the marker around if you want a more specific location.
+                            <br/>
+                        </div>
+                        
+                    
+                        
                 </div>
-                    
-                    
-                <div>
-                    
-                    <div>
-                        <%=f.label :location, "Location" %> 
-                        <%=f.text_area :location %>
-                        <%= f.hidden_field :user_id, value: current_user.id %>
-        
-                    </div>
-                    Try out our interactive map! Type in your location to drop a map marker.Click the marker to reveal your longitude
-                    and latitude. Feel free to move the marker around if you want a more specific location.
                     
                     <div class="map-container">
                         <div id='map' class="mapboxgl-map"></div>
@@ -73,17 +82,18 @@
                             <div id="location-div" class="location-div"><pre id='coordinates' class='coordinates'></pre></div>
                     </div>
                     
-                </div>
-            
-                <div><%=f.submit "Submit" %></div>
+                     <br/>
+                     
+                    <div><%=f.submit "Submit" %></div>
+            </div>
         
         <div class="col-md-6 col-md-offset-1">
-                    <% if @sighting.errors.any? %>
-        
-                        <% @sighting.errors.full_messages.each do |message| %>
-                            <p  class="alert alert-danger"> <%= message %><p>
-                        <%end%>
-                   <% end %>
+            <% if @sighting.errors.any? %>
+
+                <% @sighting.errors.full_messages.each do |message| %>
+                    <p  class="alert alert-danger"> <%= message %><p>
+                <%end%>
+        <% end %>
         
                      
         </div>
@@ -94,17 +104,6 @@
     </div>
     </div>
 
-<style>
-    
-    .mapboxgl-map { 
-      height:500px;
-      width: auto;
-    }
-  
-  .mapboxgl-ctrl-bottom-right{
-    display: none;
-  }
-</style>
 <script>
     $(document).ready(function() {
       var comment = $("#comment");

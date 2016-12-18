@@ -111,7 +111,7 @@ table{
 .map-container{
   height: 500px;
   position: relative;
-  width: auto;
+  width: 100%;
 }
 
 .mapboxgl-map { 
@@ -124,7 +124,6 @@ table{
 }
 
 #map { 
-   display: table-cell;
   .mapboxgl-ctrl-bottom-right{
     display: none;
   }
@@ -136,20 +135,23 @@ table{
   display:none;
 }
 
-/*.side-panel{
+side-panel{
   display: table;
-  height: auto;
-  width: auto;
+  height: 100%;
+  width: 50px;
   float: left;
-  /*background-color: blue;
-  position: absolute;
+  background-color: blue;
+  position: relative;
   top: 20px;
   left: 20px;
 }
-*/
 
 
 #geocoder-container {
+  display: table-cell;
+  position: absolute;
+  top: 20px;
+  left: 15px;
     .mapboxgl-ctrl-geocoder{
       padding: 0px;
       margin: 0 auto;

@@ -8,9 +8,8 @@ var map = new mapboxgl.Map({
     zoom: 15
 });
 
-
-
 map.addControl(new mapboxgl.NavigationControl());
+
 
 var elements = document.getElementsByClassName("locate");
 
@@ -63,11 +62,6 @@ numbers = numbers.replace(/^\s*?(-?[0-9]+\.?[0-9]+?)\s*,\s*(-?[0-9]+\.?[0-9]+?)\
 for(var i=1; i < numbers.length; i++) {
     parseFloat(numbers[i]);
 }
-
-/*document.write(numbers[1]);
-document.write(numbers[2]);
-document.write(numbers[3]);*/
-document.write(numbers[4]);
 
 var iconSize =  [60,60];
 

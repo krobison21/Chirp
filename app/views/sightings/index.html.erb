@@ -15,7 +15,7 @@
         
           <div id='map2'></div>
         
-          <table id ="table_id" class="table table-striped table-hover">
+          <table id ="table_id" class="table table-striped table-hover table-scrollable">
             <tr>
               <th class="col-sm-1"><%= sortable "user_id", "Name"%> </th>
               <th class="col-sm-2"><%= sortable "location", "Location"%></th>
@@ -24,7 +24,7 @@
               <th class="col-sm-1"><%= sortable "aggressive", "Aggressive"%></th>
               <th class="col-sm-1"><%= sortable "flying", "Flying"%></th>
               <th class="col-sm-1"><%= sortable "other", "Other"%></th>
-              <th class="col-sm-3"><%= sortable "notes", "Notes"%></th>
+              <th class="col-sm-3"> <%= sortable "notes", "Notes"%> </th>
               <th class="col-sm-1"><%= sortable "created_at", "Time"%></th>
             </tr>
         

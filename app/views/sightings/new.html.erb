@@ -6,6 +6,7 @@
 <div id="page-content-wrapper">
     <div class="container-fluid">
       <div class="row">
+<<<<<<< HEAD
 
             <div class="sighting-form">
                 <div class="options">
@@ -15,6 +16,23 @@
                 
                         <div class = "radio_button">
                             <%=f.label :typez, "Type of Sighting" %> 
+=======
+            <div class="col-md-6 col-md-offset-1">
+                    <% if @sighting.errors.any? %>
+    
+                    <% @sighting.errors.full_messages.each do |message| %>
+                        <p  class="alert alert-danger"> <%= message %><p>
+                    <%end%>
+                <% end %>
+                </div>
+            </div>
+            <div class="sighting-form">
+                <div class="options">
+                    <%= form_for(@sighting) do |f| %>
+                    
+                        <div class = "radio_button">
+                            <h4><%=f.label :typez, "Type of Sighting" %></h4>
+>>>>>>> master
                        <div class="radio" data-toggle="button">
                           <label><input type="radio" name="optradio"> 
                           <%= f.radio_button(:typez, "Bird") %>
@@ -30,7 +48,12 @@
                            </div>
                     
                         <div>
+<<<<<<< HEAD
                             <%=f.label :behavior, "Behavior" %> 
+=======
+                            <br/>
+                            <h4><%=f.label :behavior, "Behavior" %></h4>
+>>>>>>> master
                             <div data-toggle="tooltip" title="The individual bird is actively singing">
                                 <%= f.check_box(:singing) %>
                                 <%= label_tag(:singing, "Singing") %>
@@ -49,6 +72,7 @@
                             </div>
                         </div>
                         
+<<<<<<< HEAD
                         <div>
                             <%=f.label :notes, "Notes" %>
                             <%=f.text_area :notes, maxlength: @maximum_length, id: 'comment',class: 'form-control' , size: "36x6"%>
@@ -94,6 +118,63 @@
                     <p  class="alert alert-danger"> <%= message %><p>
                 <%end%>
         <% end %>
+=======
+                        
+                        <div>
+                            <br />
+                            <h4><%=f.label :notes, "Notes" %></h4>
+                            <%=f.text_area :notes, maxlength: @maximum_length, id: 'comment',class: 'form-control' , size: "36x6"%>
+                            Chars left: <span id="counter" data-maximum-length="<%= @maximum_length %>"><%= @maximum_length %></span>
+                           
+                
+                        </div>
+                        <br/>
+                         <br/>
+                        
+                        <div><%=f.submit "Submit" %></div>
+                            
+                            
+                        <div>
+                           
+                            <%=f.text_area :location %>
+                            <%= f.hidden_field :user_id, value: current_user.id %>
+            
+                        </div>
+                        
+                        
+                    
+                        
+                </div>
+               
+                
+                <div class="map-container">
+                    <div>
+                        <h4 style=><%=f.label :location, "Location" %></h4>
+                        Try out our interactive map! Type in your location to drop a map marker.Click the marker to reveal your longitude
+                        and latitude. Feel free to move the marker around if you want a more specific location.
+                    </div>
+                    </br>
+                            
+                    <div class="map-container-2">
+                        <div id='map' class="mapboxgl-map"></div>
+                        <div id='geocoder-container'></div>
+                    </div>
+                    
+                    <div id="location-div" class="location-div"><pre id='coordinates' class='coordinates'></pre></div>
+                </div>
+                    
+                    
+            </div>
+            
+            
+              
+            
+        </div>
+        
+          
+        
+        
+>>>>>>> master
         
                      
         </div>

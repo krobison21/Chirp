@@ -108,6 +108,7 @@ table{
 
 /*Styles for map*/
 
+<<<<<<< HEAD
 .map-container{
   height: 500px;
   position: relative;
@@ -118,6 +119,12 @@ table{
     height:500px;
     width: auto;
   }
+=======
+.mapboxgl-map { 
+    position: relative;
+    height: 500px;
+    width: auto;  }
+>>>>>>> master
 
 .mapboxgl-ctrl-bottom-right{
   display: none;
@@ -135,7 +142,11 @@ table{
   display:none;
 }
 
+<<<<<<< HEAD
 side-panel{
+=======
+/*side-panel{
+>>>>>>> master
   display: table;
   height: 100%;
   width: 50px;
@@ -145,6 +156,7 @@ side-panel{
   top: 20px;
   left: 20px;
 }
+<<<<<<< HEAD
 
 
 #geocoder-container {
@@ -153,22 +165,27 @@ side-panel{
   top: 20px;
   left: 15px;
     .mapboxgl-ctrl-geocoder{
+=======
+*/
+
+#geocoder-container {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+    /*.mapboxgl-ctrl-geocoder{
+>>>>>>> master
       padding: 0px;
       margin: 0 auto;
       font-size: 20px;
       border-radius: 8px;
     
-    }
-    .input{
-      width: 100%;
-      padding: 0px;
-    }
+    }*/
 }
 
 .location-div{
   display: block;
-  position: absolute;
-  bottom: 20px;
+  position: relative;
+  bottom: 54px;
   left: 20px;
   font: 15px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background-color: rgba(black, 0.5);
@@ -176,7 +193,17 @@ side-panel{
   min-width: 240px;
   max-width: 360px;
   z-index: 1;
-  border-radius: 8px;
+  border-radius: 4px;
+  
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+   /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+  -webkit-border-radius: 4px; 
+
+  /* Firefox 1-3.6 */
+  -moz-border-radius: 4px; 
+  
+  /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+  border-radius: 4px; 
   transition: all 10s ease;
 
 }
@@ -187,7 +214,6 @@ side-panel{
 }*/
 
 .coordinates {
-    position: relative;
     padding: 5px 0px 5px 40px;
     margin: 0;
     font-size: 12px;
@@ -197,10 +223,43 @@ side-panel{
     transition: 3s ease;
     text-align: left;
     font-family: Helvetica;
+    background: white;
+    border-radius: 4px;
 }
 
 
 
 .geocoder-icon.geocoder-icon-close.active{
   display:none;
+}
+
+.sighting-form{
+  display:table;
+  width: 100%;
+  height: 700px;
+}
+
+.map-container{
+  display:table-cell;
+  width: 50%;
+  height: 500px;
+  display:table-cell;
+  padding: 0px 20px ;
+  
+}
+
+.options{
+  display:table-cell;
+  width: 50%;
+}
+
+.col-md-offset-1{
+  float: left;
+}
+
+.map-container-2{
+  height: 500px;
+  width: auto;
+  position: relative;
+  
 }

@@ -1,10 +1,57 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Chirp</title>
+<<<<<<< HEAD
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <meta name="viewport" content="width=device-width, initial-scale=1">   
+=======
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header"> 
+      <h2><%=link_to "Chirp", root_path %></h2>
+      <br/>
+        <% if current_user %>
+          <%if current_user.provider=='guest' %>
+              <h3 class="navbar-header">Welcome, <strong><%= current_user.name %>!</strong> </h3>
+          <%else%>
+	  	         <h3 class="navbar-header">Signed in as <strong><%= current_user.name %></strong> </h3>
+	  	    <%end%>
+	     <%end%>
+	     </div>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+            <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Homepage', root_path %> </li>
+            <li class="<%= 'active' if current_page?user_path(current_user) %>"><%= link_to "My Sightings", user_path(current_user)%></li>
+            <li class="<%= 'active' if current_page?(submit_path) %>"><%= link_to "Submit a Sighting", '/sightings/new/' %></li>
+
+            <% if current_user.is_researcher? %>
+		          <li class="<%= 'active' if current_page?(allSightings_path) %>"><%= link_to "All Sightings", '/sightings' %></li>
+		          <li class="<%= 'active' if current_page?(allUsers_path) %>"><%= link_to "All Users", '/users' %></li>
+            <% end %>
+			      <li><a href="/signout">Sign Out <span class="glyphicon glyphicon-log-out"></span></a></li>
+	     
+	      <% else %>
+          <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Homepage', root_path %></li>
+          <li> <%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
+          <li class="<%= 'active' if current_page?(newUser_path) %>"> <%= link_to "Create an Account", "/users/new" %></li>
+          <li class="<%= 'active' if current_page?(login_path) %>"> <%= link_to "Log in", "/login" %></li>
+          <li class="<%= 'active' if current_page?(guest_path) %>"> <%= link_to "Proceed as Guest", "/guest" %></li>
+      	<% end %>
+	  </ul>
+  </div>
+</nav>
+
+>>>>>>> master
 
     
     
@@ -87,10 +134,12 @@
     color: #ffffff;
 }
 </style>
-
-<div class="footer navbar-fixed-bottom">
-  <p>© 2016 Chirp. All rights reserved</p> 
+<br />
+<div class="footer navbar">
+  <div class= "container"><p>© 2016 Chirp. All rights reserved</p></div>
 </div>
+</div>
+<<<<<<< HEAD
 
  <script src="js/jquery.js"></script>
 
@@ -106,6 +155,7 @@
     </script>
 
 
+=======
+>>>>>>> master
 </body>
 </html>
-

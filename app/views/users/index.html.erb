@@ -29,7 +29,7 @@
  
       <%end%> 
     </td>
-    <td><%= u.created_at %> </td>
+    <td><%= u.created_at.strftime("%b. %d %Y") %> </td>
   </tr>
     
     <% } %>

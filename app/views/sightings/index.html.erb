@@ -41,7 +41,7 @@
                 <td class="other" id="<%= s.other %>"><%= s.other %> </td>
                 <td><%= s.notes %> </td>
               
-                <td><%= s.created_at %> </td>
+                <td><%= s.created_at.strftime("%b. %d %Y") %> </td>
               </tr>
             <% end %>
           </table>

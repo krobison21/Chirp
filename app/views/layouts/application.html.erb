@@ -14,6 +14,8 @@
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header"> 
+      <h2><%=link_to "Chirp", root_path %></h2>
+      <br/>
         <% if current_user %>
           <%if current_user.provider=='guest' %>
               <h3 class="navbar-header">Welcome, <strong><%= current_user.name %>!</strong> </h3>

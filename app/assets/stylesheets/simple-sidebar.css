@@ -43,7 +43,8 @@
 #page-content-wrapper {
     width: 100%;
     position: absolute;
-    padding: 15px;
+    padding: 10px 50px;
+    margin: 0 aut0;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -117,8 +118,9 @@
     }
 
     #page-content-wrapper {
-        padding: 75px;
+        padding: 5px 160px;
         position: relative;
+        margin: 0 auto;
     }
 
     #wrapper.toggled #page-content-wrapper {

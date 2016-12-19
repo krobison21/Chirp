@@ -16,5 +16,11 @@
 //= require_tree .
 //= require mapbox-map
 //= require mapbox-map-1
+//= require bootstrap-notify.js
+//= require bootstrap.min.js
+//= require chartist.min.js
+//= require jquery-3.1.0.min.js
+//= require material-dashboard.js
+//= require material.min.js
 
 

@@ -2,40 +2,86 @@
 
 <style>
   .bg-1{
-    background-color: #5A8F29;
+    background-color: white;
     color: #ffffff;
   }
   .bg-2{
     background-color: #006699;
     color: #ffffff;
+   
   }
   .bg-3{
     background-color: #ffffff;
     color: #555555;
   }
   .bg-5{
-    background-color: #007cbf;
+    background-color: #006699;
     color: #ffffff;
   }
-</style>
-<style>
-.container-fluid {
+  
+  .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
 }
+
+p{
+  font-family: 'century gothic';
+  padding: 6-0px;
+  text-align: left;
+  line-height:30px;
+  font-weight: bold;
+}
+
+h1{
+  color:#006699 ;
+  font-family: 'Londrina Solid', cursive;
+  font-size: 100px;
+  padding:0px;
+  
+}
+
+h3{
+  color:#006699 ;
+  font-family: 'century gothic';
+  font-size: 25px;
+
+  line-height:0;
+}
+#NM{
+  color:#006699 ;
+  font-family: 'Londrina Solid', cursive;
+  font-size: 40px;
+  padding:10px;
+  
+
+}
+
+#describe{
+  padding: 0 80px;
+}
+
+
+#secdiv:target{
+  transition: 3s ease;
+}
+
 </style>
 <body> 
-<div class="container-fluid bg-1 text-center">
-  <h3>Chirp</h3>
-  <img src="https://www.allaboutbirds.org/guide/PHOTO/LARGE/northern_mockingbird_7.jpg" class="img-circle" alt="Bird">
-  <h3>Northern Mocking Bird Tracking Project</h3>
-</div>
+  <div class="container-fluid bg-1 text-center">
+    <h1> Meet Chirp!</h1>
     
-<div class="container-fluid bg-2 text-center">
-  <h3>Description</h3>
-  <h1> Northern Mockingbird</h1>
-<h2><em> Mimus polyglottos </em>  </h2>
-  <p> The Northern Mockingbird is a widespread North American songbird species. Adult birds are grey 
+    <div class="imgdiv"><img src="https://s29.postimg.org/r9j6kn42f/animate_bird_slide_19_2.gif" alt="Bird"></div>
+    <div>
+    <h3>He's a <span id="NM">Northern Mockingbird,</span>the subject  of our research!</h3></div>
+    <br />
+    <br />
+    <a href="#secdiv" onclick="window.scrollTo(0, 500)"><h3>Scroll Down to Learn More!</h3></a>
+    </div>
+    
+<div id="secdiv"class="container-fluid bg-2 text-center">
+  <h1 style="color:white;"> Northern Mockingbirds</h1>
+  <h2><em> Mimus polyglottos </em>  </h2>
+  <p id="describe"> The Northern Mockingbird is a widespread North American songbird species. Adult birds are grey 
     and black with white markings, including white wing bars. <em>M. polyglottos</em> is an omnivore, primarily feeding on insects and berries.
     The most distinguishing and notable feature of the Northern Mockingbird is its ability to mimic noises and other bird songs. Northern Mockingbirds
     are territorial and mate during the spring. </p>

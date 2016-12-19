@@ -6,6 +6,17 @@
 <div id="page-content-wrapper">
     <div class="container-fluid">
       <div class="row">
+<<<<<<< HEAD
+
+            <div class="sighting-form">
+                <div class="options">
+                    <%= form_for(@sighting) do |f| %>
+                        
+                        
+                
+                        <div class = "radio_button">
+                            <%=f.label :typez, "Type of Sighting" %> 
+=======
             <div class="col-md-6 col-md-offset-1">
                     <% if @sighting.errors.any? %>
     
@@ -21,6 +32,7 @@
                     
                         <div class = "radio_button">
                             <h4><%=f.label :typez, "Type of Sighting" %></h4>
+>>>>>>> master
                        <div class="radio" data-toggle="button">
                           <label><input type="radio" name="optradio"> 
                           <%= f.radio_button(:typez, "Bird") %>
@@ -36,8 +48,12 @@
                            </div>
                     
                         <div>
+<<<<<<< HEAD
+                            <%=f.label :behavior, "Behavior" %> 
+=======
                             <br/>
                             <h4><%=f.label :behavior, "Behavior" %></h4>
+>>>>>>> master
                             <div data-toggle="tooltip" title="The individual bird is actively singing">
                                 <%= f.check_box(:singing) %>
                                 <%= label_tag(:singing, "Singing") %>
@@ -56,6 +72,53 @@
                             </div>
                         </div>
                         
+<<<<<<< HEAD
+                        <div>
+                            <%=f.label :notes, "Notes" %>
+                            <%=f.text_area :notes, maxlength: @maximum_length, id: 'comment',class: 'form-control' , size: "36x6"%>
+                            Chars left: <span id="counter" data-maximum-length="<%= @maximum_length %>"><%= @maximum_length %></span>
+                
+                        </div>
+                            
+                            
+                        <div>
+                            
+                            <div>
+                                <%=f.label :location, "Location" %> 
+                                <%=f.text_area :location %>
+                                <%= f.hidden_field :user_id, value: current_user.id %>
+                
+                            </div>
+                            Try out our interactive map! Type in your location to drop a map marker.Click the marker to reveal your longitude
+                            and latitude. Feel free to move the marker around if you want a more specific location.
+                            <br/>
+                        </div>
+                        
+                    
+                        
+                </div>
+                    
+                    <div class="map-container">
+                        <div id='map' class="mapboxgl-map"></div>
+                        <div class="side-panel">
+                             <div id='geocoder-container'></div>
+                        </div>
+                            <div id="location-div" class="location-div"><pre id='coordinates' class='coordinates'></pre></div>
+                    </div>
+                    
+                     <br/>
+                     
+                    <div><%=f.submit "Submit" %></div>
+            </div>
+        
+        <div class="col-md-6 col-md-offset-1">
+            <% if @sighting.errors.any? %>
+
+                <% @sighting.errors.full_messages.each do |message| %>
+                    <p  class="alert alert-danger"> <%= message %><p>
+                <%end%>
+        <% end %>
+=======
                         
                         <div>
                             <br />
@@ -111,6 +174,7 @@
           
         
         
+>>>>>>> master
         
                      
         </div>

@@ -2,6 +2,10 @@
 <html>
 <head>
   <title>Chirp</title>
+<<<<<<< HEAD
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">   
+=======
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -47,7 +51,10 @@
   </div>
 </nav>
 
+>>>>>>> master
 
+    
+    
 	  <!--BootStrap -->
 	
 	<!-- jQuery library -->
@@ -58,7 +65,7 @@
   	
   	<!-- Latest compiled and minified CSS -->
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    
     <!-- Optional theme -->
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   
@@ -70,6 +77,7 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.3.1/mapbox-gl-geocoder.js'></script>
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.3.1/mapbox-gl-geocoder.css' type='text/css' />
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Solid" rel="stylesheet">
 
       
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -81,10 +89,44 @@
 <body>
 
 
-
-
-
+<!-- Navigation Bar -->
+<div id="wrapper"> 
+  
+	   <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+              <li class="sidebar-brand">
+                <h2><%=link_to "Chirp", root_path %></h2>
+                <br/>
+                <% if current_user %>
+                <%if current_user.provider=='guest' %>
+                <h3 class="navbar-header">Welcome, <strong><%= current_user.name %>!</strong> </h3>
+                <%else%>
+	  	           <li class="navbar-header">Signed in as <strong><%= current_user.name %></strong> </li>
+	  	            <%end%>
+	               <%end%>
+	             </li>
+          <% if current_user %>
+              <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to '', root_path %> </li>
+              <li class="<%= 'active' if current_page?user_path(current_user) %>"><%= link_to "My Sightings", user_path(current_user)%></li>
+              <li class="<%= 'active' if current_page?(submit_path) %>"><%= link_to "Submit a Sighting", '/sightings/new/' %></li>
+  
+              <% if current_user.is_researcher? %>
+  		          <li class="<%= 'active' if current_page?(allSightings_path) %>"><%= link_to "All Sightings", '/sightings' %></li>
+  		          <li class="<%= 'active' if current_page?(allUsers_path) %>"><%= link_to "All Users", '/users' %></li>
+              <% end %>
+  			      <li><a href="/signout">Sign Out <span class="glyphicon glyphicon-log-out"></span></a></li>
+  	     
+  	     
+  	      <% else %>
+            <li> <%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
+            <li class="<%= 'active' if current_page?(newUser_path) %>"> <%= link_to "Create an Account", "/users/new" %></li>
+            <li class="<%= 'active' if current_page?(login_path) %>"> <%= link_to "Log in", "/login" %></li>
+            <li class="<%= 'active' if current_page?(guest_path) %>"> <%= link_to "Proceed as Guest", "/guest" %></li>
+        	<% end %>
+  	    </ul>
+      </div>
 <%= yield %>
+
 
 <style>
 .bg-4 { 
@@ -97,5 +139,23 @@
   <div class= "container"><p>© 2016 Chirp. All rights reserved</p></div>
 </div>
 </div>
+<<<<<<< HEAD
+
+ <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+
+=======
+>>>>>>> master
 </body>
 </html>

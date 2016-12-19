@@ -108,10 +108,23 @@ table{
 
 /*Styles for map*/
 
+<<<<<<< HEAD
+.map-container{
+  height: 500px;
+  position: relative;
+  width: 100%;
+}
+
+.mapboxgl-map { 
+    height:500px;
+    width: auto;
+  }
+=======
 .mapboxgl-map { 
     position: relative;
     height: 500px;
     width: auto;  }
+>>>>>>> master
 
 .mapboxgl-ctrl-bottom-right{
   display: none;
@@ -129,7 +142,11 @@ table{
   display:none;
 }
 
+<<<<<<< HEAD
+side-panel{
+=======
 /*side-panel{
+>>>>>>> master
   display: table;
   height: 100%;
   width: 50px;
@@ -139,6 +156,16 @@ table{
   top: 20px;
   left: 20px;
 }
+<<<<<<< HEAD
+
+
+#geocoder-container {
+  display: table-cell;
+  position: absolute;
+  top: 20px;
+  left: 15px;
+    .mapboxgl-ctrl-geocoder{
+=======
 */
 
 #geocoder-container {
@@ -146,6 +173,7 @@ table{
   top: 10px;
   left: 15px;
     /*.mapboxgl-ctrl-geocoder{
+>>>>>>> master
       padding: 0px;
       margin: 0 auto;
       font-size: 20px;
